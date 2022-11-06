@@ -44,16 +44,20 @@ export default function Ginya() {
     <>
     <AppBar />
     <View style={{ padding: 10}}>
-        <View style={styles.container}>
-            <TextInput
-                  style = {{justifyContent:"flex-start"}}
-                  mode="flat"
-                  label="Email"
-                  value={text}
-                  placeholder="Type something"
-                  onChangeText={text => setText(text)}
+          <TextInput
+            label="Task Name"
+            left={<TextInput.Icon name="account" />}
+            mode="outlined"
+            style={{ margin: 10 }}
+          />
+
+          <TextInput
+              label="Task Description"
+              left={<TextInput.Icon name="account" />}
+              mode="outlined"
+              multiline
+              style={{ margin: 10 }}
             />
-        </View>
 
         <View style={styles.container2}>
             <SelCat />
