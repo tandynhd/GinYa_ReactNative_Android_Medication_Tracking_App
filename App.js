@@ -7,6 +7,7 @@ import Notifications from './Notifications';
 import AppBar from './AppBar';
 import FooterBar from './FooterBar';
 import SelCat from './SelectCat';
+import { TextInput } from 'react-native-paper';
 
 import {
   SafeAreaView,
@@ -37,10 +38,23 @@ export default function Ginya() {
   const _handleSearch = () => console.log('Searching');
   const _handleMore = () => console.log('Shown more');
 
+  const [text, setText] = React.useState("");
+
   return (
     <>
     <AppBar />
-    <View style={{ padding: 10, flex: 1 }}>
+    <View style={{ padding: 10}}>
+        <View style={styles.container}>
+            <TextInput
+                  style = {{justifyContent:"flex-start"}}
+                  mode="flat"
+                  label="Email"
+                  value={text}
+                  placeholder="Type something"
+                  onChangeText={text => setText(text)}
+            />
+        </View>
+
         <View style={styles.container2}>
             <SelCat />
         </View>
@@ -63,7 +77,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     container2: {
-         padding: 10,
          justifyContent: 'center',
          alignItems: 'center',
     },
