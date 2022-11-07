@@ -1,98 +1,87 @@
-import type {Node} from 'react';
-import React, { useState } from 'react';
-import { Button } from 'react-native';
-import DatePicker from 'react-native-date-picker';
-import PushNotification from 'react-native-push-notification';
-import Notifications from './components/Notifications';
-import AppBar from './components/AppBar';
-import FooterBar from './components/FooterBar';
-import SelCat from './components/SelectCat';
-import { TextInput } from 'react-native-paper';
+import * as React from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import CityMode from "./pages/homePage";
+import CurrentLocation from "./pages/viewCalendar";
 
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+class CityModeFunc extends React.Component {
+  render() {
+    return (
+      <CityMode />
+    )
+  }
+}
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+class CurrentLocationFunc extends React.Component {
+  render() {
+    return (
+      <CurrentLocation />
+    )
+  }
+}
 
-export default function Ginya() {
-  const [date, setDate] = useState(new Date())
-
-  const setNotification = () => {
-    Notifications.scheduleNotification(date);
-  };
-
-  const _goBack = () => {console.log('Went back')};
-  const _handleSearch = () => console.log('Searching');
-  const _handleMore = () => console.log('Shown more');
-
-  const [text, setText] = React.useState("");
-
+function MyTabBar({ state, descriptors, navigation }) {
   return (
-    <>
-    <View>
-        <AppBar />
+    <View style={{ flexDirection: 'row', padding:10, marginBottom: 10 }}>
+      {state.routes.map((route, index) => {
+        const { options } = descriptors[route.key];
+        const label =
+          options.tabBarLabel !== undefined
+            ? options.tabBarLabel
+            : options.title !== undefined
+            ? options.title
+            : route.name;
+
+        const isFocused = state.index === index;
+
+        const onPress = () => {
+          const event = navigation.emit({
+            type: 'tabPress',
+            target: route.key,
+          });
+
+          if (!isFocused && !event.defaultPrevented) {
+            navigation.navigate(route.name);
+          }
+        };
+
+        const onLongPress = () => {
+          navigation.emit({
+            type: 'tabLongPress',
+            target: route.key,
+          });
+        };
+
+        return (
+          <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityState={isFocused ? { selected: true } : {}}
+            accessibilityLabel={options.tabBarAccessibilityLabel}
+            testID={options.tabBarTestID}
+            onPress={onPress}
+            onLongPress={onLongPress}
+            style={{ flex: 1, alignItems: 'center' }}
+          >
+            <Text style={{ color: isFocused ? '#48466D' : '#EDE6DB' }}>
+              {label}
+            </Text>
+          </TouchableOpacity>
+        );
+      })}
     </View>
-    <View style = {{flex:3}}>
-        <ScrollView>
-            <View style={{ padding: 10}}>
-                  <TextInput
-                    label="Task Name"
-                    left={<TextInput.Icon name="account" />}
-                    mode="outlined"
-                    style={{ margin: 10 }}
-                  />
-
-                  <TextInput
-                      label="Task Description"
-                      left={<TextInput.Icon name="account" />}
-                      mode="outlined"
-                      multiline
-                      style={{ margin: 10 }}
-                    />
-
-                  <View style={styles.container2}>
-                                  <SelCat />
-                              </View>
-
-                  <View style={styles.container} >
-                                   <Text variant="titleLarge">Choose Medication Time</Text>
-                                   <DatePicker date={date} onDateChange={setDate} />
-                                   <Button title="Set notification" onPress={setNotification} />
-                              </View>
-
-            </View>
-        </ScrollView>
-        </View>
-    <View style = {{flex:1}}>
-        <FooterBar />
-    </View>
-    </>
   );
-};
+}
 
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    container2: {
-         justifyContent: 'center',
-         alignItems: 'center',
-    },
-    wrapper: {
-        height: 60,
-    }
-})
+const Tab = createBottomTabNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
+        <Tab.Screen name="Add Tasks" component={CityModeFunc} />
+        <Tab.Screen name="View Calendar" component={CurrentLocationFunc} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}

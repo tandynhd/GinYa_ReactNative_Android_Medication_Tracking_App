@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { BottomNavigation, Text } from 'react-native-paper';
+import Homepage from "../pages/homePage";
 
 const MusicRoute = () => <Text></Text>;
 
