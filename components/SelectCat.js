@@ -14,9 +14,9 @@ import {
 
 const MyComponent = () => (
     <View style={styles.container}>
-        <Text style={{textAlign: 'left'}}>Select Medication Categories</Text>
+        <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Select Medication Categories</Text>
         <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap"}}>
-            <Button style={styles.button} title="Eye" icon="eye" mode='contained-tonal' onPress={() => console.log('Pressed')}>
+            <Button style={styles.buttonActive} title="Eye" icon="eye" mode='contained-tonal' onPress={() => console.log('Pressed')}>
                 Eye
             </Button>
             <Button style={styles.button} title="Ear" icon="volume-high" mode="contained" onPress={() => console.log('Pressed')}>
@@ -49,11 +49,22 @@ const styles = StyleSheet.create({
         paddingHorizontal: 1,
         paddingVertical: 0,
         borderRadius: 10,
-        backgroundColor: "coral",
+        backgroundColor: "#979797",
         alignSelf: "flex-start",
         marginHorizontal: "1%",
         marginBottom: 6,
         minWidth: "10%",
         textAlign: "left",
     },
+     buttonActive: {
+                paddingHorizontal: 1,
+                paddingVertical: 0,
+                borderRadius: 10,
+                backgroundColor: "lightskyblue",
+                alignSelf: "flex-start",
+                marginHorizontal: "1%",
+                marginBottom: 6,
+                minWidth: "10%",
+                textAlign: "left",
+            }
 })

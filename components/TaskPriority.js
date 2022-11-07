@@ -14,9 +14,9 @@ import {
 
 const MyComponent = () => (
     <View style={styles.container}>
-        <Text style={{textAlign: 'left'}}>Set Task Priority</Text>
+        <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Set Task Priority</Text>
         <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap"}}>
-            <Button style={styles.button} title="low" mode='contained-tonal' onPress={() => console.log('Pressed')}>
+            <Button style={styles.buttonActive} title="low" mode='contained-tonal' onPress={() => console.log('Pressed')}>
                 Low
             </Button>
             <Button style={styles.button} title="mid" mode="contained" onPress={() => console.log('Pressed')}>
@@ -37,7 +37,6 @@ export default MyComponent;
 const styles = StyleSheet.create({
     container: {
         flex:1,
-        justifyContent: 'center',
         alignItems: 'flex-start',
         margin: 10
     },
@@ -45,11 +44,22 @@ const styles = StyleSheet.create({
         paddingHorizontal: 1,
         paddingVertical: 0,
         borderRadius: 10,
-        backgroundColor: "coral",
+        backgroundColor: "#979797",
         alignSelf: "flex-start",
         marginHorizontal: "1%",
         marginBottom: 6,
         minWidth: "10%",
         textAlign: "left",
     },
+    buttonActive: {
+            paddingHorizontal: 1,
+            paddingVertical: 0,
+            borderRadius: 10,
+            backgroundColor: "lightskyblue",
+            alignSelf: "flex-start",
+            marginHorizontal: "1%",
+            marginBottom: 6,
+            minWidth: "10%",
+            textAlign: "left",
+        }
 })

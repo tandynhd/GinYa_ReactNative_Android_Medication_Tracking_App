@@ -54,7 +54,7 @@ export default function Homepage() {
                     label="Task Name"
                     left={<TextInput.Icon name="account" />}
                     mode="outlined"
-                    style={{ margin: 10 }}
+                    style={{ margin: 5 , backgroundColor: "aliceblue", color: "black"}}
                   />
 
                   <TextInput
@@ -62,7 +62,7 @@ export default function Homepage() {
                       left={<TextInput.Icon name="account" />}
                       mode="outlined"
                       multiline
-                      style={{ margin: 10 }}
+                      style={{ margin: 5 , backgroundColor: "aliceblue", color: "black"}}
                     />
                   <View style={styles.container2}>
                       <SelRep />
@@ -73,7 +73,7 @@ export default function Homepage() {
                               </View>
 
                   <View style={styles.container} >
-                                   <Text variant="titleLarge">Choose Medication Time</Text>
+                                   <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Choose Medication Time</Text>
                                    <DatePicker date={date} onDateChange={setDate} />
                                    <Button title="Set notification" onPress={setNotification} />
                               </View>

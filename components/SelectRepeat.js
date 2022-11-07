@@ -14,9 +14,9 @@ import {
 
 const MyComponent = () => (
     <View style={styles.container}>
-        <Text style={{textAlign: 'left'}}>Repeat Notification Every</Text>
+        <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Repeat Notification Every</Text>
         <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap"}}>
-            <Button style={styles.button} title="day" mode='contained-tonal' onPress={() => console.log('Pressed')}>
+            <Button style={styles.buttonActive} title="day" mode='contained-tonal' onPress={() => console.log('Pressed')}>
                 Day
             </Button>
             <Button style={styles.button} title="week" mode="contained" onPress={() => console.log('Pressed')}>
@@ -39,17 +39,29 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent: 'center',
         margin: 10,
-        alignItems: 'flex-start'
+        alignItems: 'space-around',
+        textAlign: "left"
     },
     button: {
         paddingHorizontal: 1,
         paddingVertical: 0,
         borderRadius: 10,
-        backgroundColor: "coral",
+        backgroundColor: "#979797",
         alignSelf: "flex-start",
         marginHorizontal: "1%",
         marginBottom: 6,
         minWidth: "10%",
         textAlign: "left",
     },
+     buttonActive: {
+                paddingHorizontal: 1,
+                paddingVertical: 0,
+                borderRadius: 10,
+                backgroundColor: "lightskyblue",
+                alignSelf: "flex-start",
+                marginHorizontal: "1%",
+                marginBottom: 6,
+                minWidth: "10%",
+                textAlign: "left",
+            }
 })
