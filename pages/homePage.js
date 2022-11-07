@@ -1,14 +1,12 @@
-import SelCat from '../components/SelectCat';
+import SelCat from '../components/addMedicines/SelectCat';
 import type {Node} from 'react';
 import React, { useState } from 'react';
 import { Button } from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import PushNotification from 'react-native-push-notification';
 import Notifications from '../components/Notifications';
-import AppBar from '../components/AppBar';
-import FooterBar from '../components/FooterBar';
-import SelRep from '../components/SelectRepeat';
-import TaskPri from '../components/TaskPriority';
+import SelRep from '../components/addMedicines/SelectRepeat';
+import TaskPri from '../components/addMedicines/TaskPriority';
 import { TextInput } from 'react-native-paper';
 
 import {
@@ -44,10 +42,7 @@ export default function Homepage() {
 
   return (
     <>
-    <View>
-        <AppBar />
-    </View>
-    <View style = {{flex:3}}>
+    <View style = {{flex:1}}>
         <ScrollView>
             <View style={{ padding: 10}}>
                   <TextInput
@@ -64,24 +59,17 @@ export default function Homepage() {
                       multiline
                       style={{ margin: 5 , backgroundColor: "aliceblue", color: "black"}}
                     />
-                  <View style={styles.container2}>
-                      <SelRep />
-                  </View>
-
-                  <View style={styles.container2}>
-                                  <SelCat />
-                              </View>
-
-                  <View style={styles.container} >
-                                   <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Choose Medication Time</Text>
-                                   <DatePicker date={date} onDateChange={setDate} />
-                                   <Button title="Set notification" onPress={setNotification} />
-                              </View>
-                  <View style={styles.container} >
-                       <TaskPri />
-                  </View>
-
             </View>
+            <SelRep />
+            <SelCat />
+            <View style={styles.container} >
+                <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Choose Medication Time</Text>
+                <DatePicker date={date} onDateChange={setDate} />
+                <Button title="Set notification" onPress={setNotification} />
+            </View>
+           <View style={styles.container} >
+                <TaskPri />
+           </View>
         </ScrollView>
         </View>
     </>

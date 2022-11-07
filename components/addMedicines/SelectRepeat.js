@@ -37,10 +37,7 @@ export default MyComponent;
 const styles = StyleSheet.create({
     container: {
         flex:1,
-        justifyContent: 'center',
         margin: 10,
-        alignItems: 'space-around',
-        textAlign: "left"
     },
     button: {
         paddingHorizontal: 1,
