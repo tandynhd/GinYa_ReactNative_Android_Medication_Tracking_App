@@ -1,3 +1,4 @@
+import SelCat from '../components/SelectCat';
 import type {Node} from 'react';
 import React, { useState } from 'react';
 import { Button } from 'react-native';
@@ -6,7 +7,8 @@ import PushNotification from 'react-native-push-notification';
 import Notifications from '../components/Notifications';
 import AppBar from '../components/AppBar';
 import FooterBar from '../components/FooterBar';
-import SelCat from '../components/SelectCat';
+import SelRep from '../components/SelectRepeat';
+import TaskPri from '../components/TaskPriority';
 import { TextInput } from 'react-native-paper';
 
 import {
@@ -62,6 +64,9 @@ export default function Homepage() {
                       multiline
                       style={{ margin: 10 }}
                     />
+                  <View style={styles.container2}>
+                      <SelRep />
+                  </View>
 
                   <View style={styles.container2}>
                                   <SelCat />
@@ -72,6 +77,9 @@ export default function Homepage() {
                                    <DatePicker date={date} onDateChange={setDate} />
                                    <Button title="Set notification" onPress={setNotification} />
                               </View>
+                  <View style={styles.container} >
+                       <TaskPri />
+                  </View>
 
             </View>
         </ScrollView>

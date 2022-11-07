@@ -14,26 +14,23 @@ import {
 
 const MyComponent = () => (
     <View style={styles.container}>
-        <Text style={{textAlign: 'left'}}>Select Medication Categories</Text>
+        <Text style={{textAlign: 'left'}}>Repeat Notification Every</Text>
         <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap"}}>
-            <Button style={styles.button} title="Eye" icon="eye" mode='contained-tonal' onPress={() => console.log('Pressed')}>
-                Eye
+            <Button style={styles.button} title="day" mode='contained-tonal' onPress={() => console.log('Pressed')}>
+                Day
             </Button>
-            <Button style={styles.button} title="Ear" icon="volume-high" mode="contained" onPress={() => console.log('Pressed')}>
-                Ear
+            <Button style={styles.button} title="week" mode="contained" onPress={() => console.log('Pressed')}>
+                Week
             </Button>
-            <Button style={styles.button} title="Head" icon="head-flash" mode="contained" onPress={() => console.log('Pressed')}>
-                Head
+            <Button style={styles.button} title="month" mode="contained" onPress={() => console.log('Pressed')}>
+                Month
             </Button>
-            <Button style={styles.button} title="Ankles" icon="foot-print" mode="contained" onPress={() => console.log('Pressed')}>
-               Ankles
-            </Button>
-            <Button style={styles.button} title="Hip" icon="account" mode="contained" onPress={() => console.log('Pressed')}>
-               Hip
+            <Button style={styles.button} title="+" mode="contained" onPress={() => console.log('Pressed')}>
+               +
             </Button>
         </View>
     </View>
- );
+    );
 export default MyComponent;
 
 
@@ -41,9 +38,8 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         justifyContent: 'center',
-        alignItems: 'flex-start',
-        margin: 10
-
+        margin: 10,
+        alignItems: 'flex-start'
     },
     button: {
         paddingHorizontal: 1,

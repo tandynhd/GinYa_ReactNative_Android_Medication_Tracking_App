@@ -14,26 +14,23 @@ import {
 
 const MyComponent = () => (
     <View style={styles.container}>
-        <Text style={{textAlign: 'left'}}>Select Medication Categories</Text>
+        <Text style={{textAlign: 'left'}}>Set Task Priority</Text>
         <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap"}}>
-            <Button style={styles.button} title="Eye" icon="eye" mode='contained-tonal' onPress={() => console.log('Pressed')}>
-                Eye
+            <Button style={styles.button} title="low" mode='contained-tonal' onPress={() => console.log('Pressed')}>
+                Low
             </Button>
-            <Button style={styles.button} title="Ear" icon="volume-high" mode="contained" onPress={() => console.log('Pressed')}>
-                Ear
+            <Button style={styles.button} title="mid" mode="contained" onPress={() => console.log('Pressed')}>
+                Mid
             </Button>
-            <Button style={styles.button} title="Head" icon="head-flash" mode="contained" onPress={() => console.log('Pressed')}>
-                Head
+            <Button style={styles.button} title="high" mode="contained" onPress={() => console.log('Pressed')}>
+                High
             </Button>
-            <Button style={styles.button} title="Ankles" icon="foot-print" mode="contained" onPress={() => console.log('Pressed')}>
-               Ankles
-            </Button>
-            <Button style={styles.button} title="Hip" icon="account" mode="contained" onPress={() => console.log('Pressed')}>
-               Hip
+            <Button style={styles.button} title="+" mode="contained" onPress={() => console.log('Pressed')}>
+               +
             </Button>
         </View>
     </View>
- );
+    );
 export default MyComponent;
 
 
@@ -43,7 +40,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'flex-start',
         margin: 10
-
     },
     button: {
         paddingHorizontal: 1,
