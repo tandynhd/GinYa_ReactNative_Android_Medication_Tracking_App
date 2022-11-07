@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CityMode from "./pages/homePage";
 import CurrentLocation from "./pages/viewCalendar";
+//import CurrentLocation from "./pages/viewMeds";
 
 class CityModeFunc extends React.Component {
   render() {
