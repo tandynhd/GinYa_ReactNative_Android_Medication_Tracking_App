@@ -47,14 +47,12 @@ export default function Homepage() {
             <View style={{ padding: 10}}>
                   <TextInput
                     label="Task Name"
-                    left={<TextInput.Icon name="account" />}
                     mode="outlined"
                     style={{ margin: 5 , backgroundColor: "aliceblue", color: "black"}}
                   />
 
                   <TextInput
                       label="Task Description"
-                      left={<TextInput.Icon name="account" />}
                       mode="outlined"
                       multiline
                       style={{ margin: 5 , backgroundColor: "aliceblue", color: "black"}}
@@ -67,9 +65,7 @@ export default function Homepage() {
                 <DatePicker date={date} onDateChange={setDate} />
                 <Button title="Set notification" onPress={setNotification} />
             </View>
-           <View style={styles.container} >
-                <TaskPri />
-           </View>
+            <TaskPri />
         </ScrollView>
         </View>
     </>
