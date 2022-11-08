@@ -2,28 +2,28 @@ import * as React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import CityMode from "./pages/homePage";
-import CurrentLocation from "./pages/viewCalendar";
+import AddTasks from "./pages/addMeds";
+import ViewCalendar from "./pages/viewCalendar";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import ViewMeds from "./pages/viewMeds";
 
-class CityModeFunc extends React.Component {
+class AddTasksFunc extends React.Component {
   render() {
     return (
-      <CityMode />
+      <AddTasks />
     )
   }
 }
 
-class CurrentLocationFunc extends React.Component {
+class ViewCalendarFunc extends React.Component {
   render() {
     return (
-      <CurrentLocation />
+      <ViewCalendar />
     )
   }
 }
 
-class ViewTasks extends React.Component {
+class ViewTasksFunc extends React.Component {
   render() {
     return (
       <ViewMeds />
@@ -98,9 +98,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
-        <Tab.Screen name="View Tasks" component={ViewTasks} />
-        <Tab.Screen name="Add Tasks" component={CityModeFunc} />
-        <Tab.Screen name="View Calendar" component={CurrentLocationFunc} />
+        <Tab.Screen name="View Tasks" component={ViewTasksFunc} />
+        <Tab.Screen name="Add Tasks" component={AddTasksFunc} />
+        <Tab.Screen name="View Calendar" component={ViewCalendarFunc} />
       </Tab.Navigator>
     </NavigationContainer>
   );
