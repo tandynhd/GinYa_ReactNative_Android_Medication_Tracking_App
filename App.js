@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CityMode from "./pages/homePage";
 import CurrentLocation from "./pages/viewCalendar";
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
 //import CurrentLocation from "./pages/viewMeds";
 
 class CityModeFunc extends React.Component {
@@ -62,9 +63,18 @@ function MyTabBar({ state, descriptors, navigation }) {
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{ flex: 1, alignItems: 'center' }}
+            style={{
+                flex: 1, alignItems: 'center',
+                backgroundColor: isFocused ? '#808080' : '#dcdcdc',
+                borderRadius: 5,
+                margin: 5,
+                padding: 5
+            }}
           >
-            <Text style={{ color: isFocused ? '#48466D' : '#EDE6DB' }}>
+            <Icon
+                  name="home" size={30} color="#fffaf0"
+            />
+            <Text style={{ color: isFocused ? '#fffaf0' : '#696969', fontWeight: 'bold'}}>
               {label}
             </Text>
           </TouchableOpacity>
