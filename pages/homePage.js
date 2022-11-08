@@ -1,7 +1,7 @@
 import SelCat from '../components/addMedicines/SelectCat';
 import type {Node} from 'react';
 import React, { useState } from 'react';
-import { Button } from 'react-native';
+import { Button } from 'react-native-paper';
 import DatePicker from 'react-native-date-picker';
 import PushNotification from 'react-native-push-notification';
 import Notifications from '../components/Notifications';
@@ -45,28 +45,28 @@ export default function Homepage() {
     <View style = {{flex:1}}>
         <ScrollView>
             <View style={{ padding: 5, marginVertical: 5, marginHorizontal: 10, backgroundColor: '#dcdcdc', borderRadius: 10, elevation: 5}}>
-                <Text style={{color: 'black', fontWeight: 'bold', padding: 5, textAlign: 'left' }}>Medication Name and Description</Text>
+                <Text style={{color: 'black', fontWeight: 'bold' }}> Medication Name and Description</Text>
                   <TextInput
                     label="Task Name"
                     mode="outlined"
-                    style={{ margin: 5 , backgroundColor: "#f8f8ff", color: "black" }}
+                    style={{ marginVertical: 2, marginHorizontal: 5, backgroundColor: "#f8f8ff", color: "black" }}
                   />
 
                   <TextInput
                       label="Task Description"
                       mode="outlined"
                       multiline
-                      style={{ margin: 5 , backgroundColor: "#f8f8ff", color: "black"}}
+                      style={{ marginVertical: 2, marginHorizontal: 5, backgroundColor: "#f8f8ff", color: "black"}}
                     />
             </View>
             <SelRep />
             <SelCat />
             <View style={styles.container} >
                 <Text style={{color: 'black', fontWeight: 'bold', padding: 5, textAlign: 'left' }}>Choose Medication Time</Text>
-                <DatePicker date={date} onDateChange={setDate} />
-                <Button title="Set notification" onPress={setNotification} />
+                <DatePicker style={{borderRadius: 25}} mode="datetime" date={date} onDateChange={setDate} />
             </View>
             <TaskPri />
+            <Button style={{margin: 5, backgroundColor: "lightskyblue"}} textColor="black" fontWeight="bold" title="Set notification" mode="elevated" onPress={setNotification}> Set Notification </Button>
         </ScrollView>
         </View>
     </>
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
+        padding: 5
     },
     container2: {
          justifyContent: 'center',
