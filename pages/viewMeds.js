@@ -5,6 +5,8 @@ import { Text, FAB, List } from "react-native-paper";
 import { Alert } from "react-native";
 import { Button } from "react-native";
 
+import tasksJSON from "./tasks.json";
+
 function ViewNotes({ navigation }) {
   const [hour, setHour] = useState(new Date().getHours());
   const [minute, setMinute] = useState(new Date().getMinutes());
@@ -21,17 +23,12 @@ function ViewNotes({ navigation }) {
       setDate(new Date().getDate());
       setMonth(new Date().getMonth() + 1);
       setYear(new Date().getFullYear());
-      console.log(seconds > 10);
-      if (seconds == 10) {
-        console.log("+++++++++++++++++");
-        Alert.alert("Alert Title", "My Alert Msg");
-      }
     }, 1000);
 
     return () => clearInterval(secTimer);
   }, []);
 
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(tasksJSON);
   const addNote = (note) => {
     note.id = notes.length + 1;
     setNotes([...notes, note]); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
@@ -82,18 +79,6 @@ function ViewNotes({ navigation }) {
             keyExtractor={(item) => item.id.toString()}
           />
         )}
-        <FAB
-          style={styles.fab}
-          small
-          icon="plus"
-          label="Add new task"
-          onPress={() =>
-            navigation.navigate("AddNotes", {
-              addNote,
-              notes,
-            })
-          }
-        />
       </View>
     </>
   );

@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CityMode from "./pages/homePage";
 import CurrentLocation from "./pages/viewCalendar";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
-//import CurrentLocation from "./pages/viewMeds";
+import ViewMeds from "./pages/viewMeds";
 
 class CityModeFunc extends React.Component {
   render() {
@@ -19,6 +19,14 @@ class CurrentLocationFunc extends React.Component {
   render() {
     return (
       <CurrentLocation />
+    )
+  }
+}
+
+class ViewTasks extends React.Component {
+  render() {
+    return (
+      <ViewMeds />
     )
   }
 }
@@ -90,6 +98,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
+        <Tab.Screen name="View Tasks" component={ViewTasks} />
         <Tab.Screen name="Add Tasks" component={CityModeFunc} />
         <Tab.Screen name="View Calendar" component={CurrentLocationFunc} />
       </Tab.Navigator>
