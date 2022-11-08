@@ -59,12 +59,12 @@ export default function Homepage() {
                       style={{ marginVertical: 2, marginHorizontal: 5, backgroundColor: "#f8f8ff", color: "black"}}
                     />
             </View>
-            <SelRep />
-            <SelCat />
             <View style={styles.container} >
                 <Text style={{color: 'black', fontWeight: 'bold', padding: 5, textAlign: 'left' }}>Choose Medication Time</Text>
                 <DatePicker style={{borderRadius: 25}} mode="datetime" date={date} onDateChange={setDate} />
             </View>
+            <SelRep />
+            <SelCat />
             <TaskPri />
             <Button style={{margin: 5, backgroundColor: "lightskyblue"}} textColor="black" fontWeight="bold" title="Set notification" mode="elevated" onPress={setNotification}> Set Notification </Button>
         </ScrollView>

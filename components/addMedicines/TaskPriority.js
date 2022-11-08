@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from "react";
 import { Button } from 'react-native-paper';
 import { Provider as PaperProvider } from 'react-native-paper';
 
@@ -12,28 +12,30 @@ import {
   View,
 } from 'react-native';
 
-const MyComponent = () => (
+export default function MyComponent() {
+const [active, setActive] = useState("1");
+    return(
     <View style={styles.container}>
         <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>
-            Set Task Priority
+            Task Priority
         </Text>
         <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap"}}>
-            <Button style={styles.buttonActive} title="low" mode='contained-tonal' onPress={() => console.log('Pressed')}>
+            <Button style={active=="1"?styles.buttonActive:styles.button} title="low" mode='contained-tonal' textColor={active=="1"?"black":"white"} onPress={() => setActive("1")}>
                 Low
             </Button>
-            <Button style={styles.button} title="mid" mode="elevated" textColor="black" onPress={() => console.log('Pressed')}>
+            <Button style={active=="2"?styles.buttonActive:styles.button} title="mid" mode="elevated" textColor={active=="2"?"black":"white"} onPress={() => setActive("2")}>
                 Mid
             </Button>
-            <Button style={styles.button} title="high" mode="elevated" textColor="white" onPress={() => console.log('Pressed')}>
+            <Button style={active=="3"?styles.buttonActive:styles.button} title="high" mode="elevated" textColor={active=="3"?"black":"white"} onPress={() => setActive("3")}>
                 High
             </Button>
-            <Button style={styles.button} title="+" mode="elevated" textColor="white" onPress={() => console.log('Pressed')}>
+            <Button style={active=="4"?styles.buttonActive:styles.button} title="+" mode="elevated" textColor={active=="4"?"black":"white"} onPress={() => setActive("4")}>
                +
             </Button>
         </View>
     </View>
     );
-export default MyComponent;
+};
 
 
 const styles = StyleSheet.create({

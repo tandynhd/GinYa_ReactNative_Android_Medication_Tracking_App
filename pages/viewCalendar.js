@@ -1,6 +1,5 @@
 import type {Node} from 'react';
 import React, { useState } from 'react';
-//import { Button } from 'react-native';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import { Avatar, Card, Title, Paragraph, Button } from 'react-native-paper';
 
