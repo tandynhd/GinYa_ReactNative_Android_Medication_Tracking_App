@@ -15,7 +15,7 @@ import {
 const MyComponent = () => (
     <View style={styles.container}>
         <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Repeat Notification Every</Text>
-        <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap"}}>
+        <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap" }}>
             <Button style={styles.buttonActive} title="day" mode='contained-tonal' onPress={() => console.log('Pressed')}>
                 Day
             </Button>
@@ -54,14 +54,14 @@ const styles = StyleSheet.create({
         textAlign: "left",
     },
      buttonActive: {
-                paddingHorizontal: 1,
-                paddingVertical: 0,
-                borderRadius: 10,
-                backgroundColor: "lightskyblue",
-                alignSelf: "flex-start",
-                marginHorizontal: "1%",
-                marginBottom: 6,
-                minWidth: "10%",
-                textAlign: "left",
-            }
+        paddingHorizontal: 1,
+        paddingVertical: 0,
+        borderRadius: 10,
+        backgroundColor: "lightskyblue",
+        alignSelf: "flex-start",
+        marginHorizontal: "1%",
+        marginBottom: 6,
+        minWidth: "10%",
+        textAlign: "left",
+    }
 })

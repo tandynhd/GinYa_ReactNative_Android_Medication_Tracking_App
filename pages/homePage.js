@@ -44,24 +44,25 @@ export default function Homepage() {
     <>
     <View style = {{flex:1}}>
         <ScrollView>
-            <View style={{ padding: 10}}>
+            <View style={{ padding: 5, margin: 10, backgroundColor: '#dcdcdc', borderRadius: 10,}}>
+                <Text style={{color: 'black', fontWeight: 'bold', padding: 5, textAlign: 'left' }}>Medication Name and Description</Text>
                   <TextInput
                     label="Task Name"
                     mode="outlined"
-                    style={{ margin: 5 , backgroundColor: "aliceblue", color: "black"}}
+                    style={{ margin: 5 , backgroundColor: "#f8f8ff", color: "black"}}
                   />
 
                   <TextInput
                       label="Task Description"
                       mode="outlined"
                       multiline
-                      style={{ margin: 5 , backgroundColor: "aliceblue", color: "black"}}
+                      style={{ margin: 5 , backgroundColor: "#f8f8ff", color: "black"}}
                     />
             </View>
             <SelRep />
             <SelCat />
             <View style={styles.container} >
-                <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Choose Medication Time</Text>
+                <Text style={{color: 'black', fontWeight: 'bold', padding: 5, textAlign: 'left' }}>Choose Medication Time</Text>
                 <DatePicker date={date} onDateChange={setDate} />
                 <Button title="Set notification" onPress={setNotification} />
             </View>
