@@ -35,10 +35,10 @@ function ViewNotes({ navigation }) {
   };
   // notes.sort(notes.noteTime);
   notes.sort((a, b) => {
-    console.log(a.noteTime, b.noteTime);
+//    console.log(a.noteTime, b.noteTime);
     return a.noteTime - b.noteTime;
   });
-  console.log(notes);
+//  console.log(notes);
 
   return (
     <>

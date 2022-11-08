@@ -26,11 +26,11 @@ class Notifications {
         });
     }
 
-    scheduleNotification(date) {
+    scheduleNotification(date, taskName, taskDesc) {
         PushNotification.localNotificationSchedule({
             channelId: 'reminders',
-            title: 'Ginya App',
-            message: 'Take your meds',
+            title: taskName,
+            message: taskDesc,
             date,
         });
     }

@@ -8,6 +8,7 @@ import Notifications from '../components/Notifications';
 import SelRep from '../components/addMedicines/SelectRepeat';
 import TaskPri from '../components/addMedicines/TaskPriority';
 import { TextInput } from 'react-native-paper';
+//import tasksJSON from "./tasks.json"
 
 import {
   SafeAreaView,
@@ -28,10 +29,26 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 export default function Homepage() {
-  const [date, setDate] = useState(new Date())
+  const [date, setDate] = useState(new Date());
+  const [taskName, setTaskName] = useState("");
+  const [taskDesc, setTaskDesc] = useState("");
 
   const setNotification = () => {
-    Notifications.scheduleNotification(date);
+    Notifications.scheduleNotification(date, taskName, taskDesc);
+//    const newTask = {
+//        "id":5,
+//        "noteTitle": taskName,
+//        "noteValue": taskDesc,
+//        "noteTime": "0900"
+//
+//      };
+//    const fs = require("fs");
+//    let tasksJSON = fs.readFileSync("tasks.json","utf-8");
+//    let tasksJSON2 = JSON.parse(tasksJSON);
+//    tasksJSON2.push(newTask);
+//    tasksJSON = JSON.stringify(tasksJSON2);
+//    fs.writeFileSync("tasks.json", tasksJSON, "utf-8")
+
   };
 
   const _goBack = () => {console.log('Went back')};
@@ -50,6 +67,8 @@ export default function Homepage() {
                     label="Task Name"
                     mode="outlined"
                     style={{ marginVertical: 2, marginHorizontal: 5, backgroundColor: "#f8f8ff", color: "black" }}
+                    onChangeText = {text => setTaskName(text)}
+                    value = {taskName}
                   />
 
                   <TextInput
@@ -57,6 +76,8 @@ export default function Homepage() {
                       mode="outlined"
                       multiline
                       style={{ marginVertical: 2, marginHorizontal: 5, backgroundColor: "#f8f8ff", color: "black"}}
+                      onChangeText = {text => setTaskDesc(text)}
+                      value = {taskDesc}
                     />
             </View>
             <View style={styles.container} >
