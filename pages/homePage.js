@@ -44,12 +44,12 @@ export default function Homepage() {
     <>
     <View style = {{flex:1}}>
         <ScrollView>
-            <View style={{ padding: 5, margin: 10, backgroundColor: '#dcdcdc', borderRadius: 10,}}>
+            <View style={{ padding: 5, marginVertical: 5, marginHorizontal: 10, backgroundColor: '#dcdcdc', borderRadius: 10, elevation: 5}}>
                 <Text style={{color: 'black', fontWeight: 'bold', padding: 5, textAlign: 'left' }}>Medication Name and Description</Text>
                   <TextInput
                     label="Task Name"
                     mode="outlined"
-                    style={{ margin: 5 , backgroundColor: "#f8f8ff", color: "black"}}
+                    style={{ margin: 5 , backgroundColor: "#f8f8ff", color: "black" }}
                   />
 
                   <TextInput

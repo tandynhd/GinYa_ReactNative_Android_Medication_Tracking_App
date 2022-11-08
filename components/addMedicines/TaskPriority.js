@@ -14,18 +14,20 @@ import {
 
 const MyComponent = () => (
     <View style={styles.container}>
-        <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Set Task Priority</Text>
+        <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>
+            Set Task Priority
+        </Text>
         <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap"}}>
             <Button style={styles.buttonActive} title="low" mode='contained-tonal' onPress={() => console.log('Pressed')}>
                 Low
             </Button>
-            <Button style={styles.button} title="mid" mode="contained" onPress={() => console.log('Pressed')}>
+            <Button style={styles.button} title="mid" mode="elevated" textColor="black" onPress={() => console.log('Pressed')}>
                 Mid
             </Button>
-            <Button style={styles.button} title="high" mode="contained" onPress={() => console.log('Pressed')}>
+            <Button style={styles.button} title="high" mode="elevated" textColor="white" onPress={() => console.log('Pressed')}>
                 High
             </Button>
-            <Button style={styles.button} title="+" mode="contained" onPress={() => console.log('Pressed')}>
+            <Button style={styles.button} title="+" mode="elevated" textColor="white" onPress={() => console.log('Pressed')}>
                +
             </Button>
         </View>
@@ -38,10 +40,11 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         alignItems: 'flex-start',
-        margin: 10,
+        marginVertical: 5, marginHorizontal: 10,
         backgroundColor: '#dcdcdc',
         borderRadius: 10,
-        padding: 5
+        padding: 5,
+        elevation: 5
     },
     button: {
         paddingHorizontal: 1,
