@@ -59,14 +59,14 @@ const styles = StyleSheet.create({
         textAlign: "left",
     },
      buttonActive: {
-                paddingHorizontal: 1,
-                paddingVertical: 0,
-                borderRadius: 10,
-                backgroundColor: "lightskyblue",
-                alignSelf: "flex-start",
-                marginHorizontal: "1%",
-                marginBottom: 6,
-                minWidth: "10%",
-                textAlign: "left",
-            }
+        paddingHorizontal: 1,
+        paddingVertical: 0,
+        borderRadius: 10,
+        backgroundColor: "lightskyblue",
+        alignSelf: "flex-start",
+        marginHorizontal: "1%",
+        marginBottom: 6,
+        minWidth: "10%",
+        textAlign: "left",
+    }
 })
