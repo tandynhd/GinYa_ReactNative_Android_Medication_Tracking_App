@@ -2,6 +2,8 @@ import type {Node} from 'react';
 import React, { useState } from 'react';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import { Avatar, Card, Title, Paragraph, Button } from 'react-native-paper';
+import { useRecoilState } from "recoil";
+import { tasksStatus } from "./Atoms"
 
 import {
   SafeAreaView,
@@ -22,6 +24,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 export default function Homepage() {
+    const [taskStatus, setTaskStatus] = useRecoilState(tasksStatus);
+    console.log(typeof taskStatus[0].date);
   return (
     <View style={{paddingTop: 10, flex:1}}>
     <Calendar
@@ -29,14 +33,14 @@ export default function Homepage() {
       // Collection of dates that have to be marked. Default = {}
       markedDates={{
         '2022-11-09': {marked: true, dotColor: 'white', activeOpacity: 100},
-        '2022-11-01': {selected: true, selectedColor: 'green'},
-        '2022-11-02': {selected: true, selectedColor: 'orange'},
-        '2022-11-03': {selected: true, selectedColor: 'green'},
-        '2022-11-04': {selected: true, selectedColor: 'orange'},
-        '2022-11-05': {selected: true, selectedColor: 'orange'},
-        '2022-11-06': {selected: true, selectedColor: 'orange'},
-        '2022-11-07': {selected: true, selectedColor: 'red'},
-        '2022-11-08': {selected: true, selectedColor: 'orange'},
+        '2022-11-01': {selected: true, selectedColor: taskStatus[0].color},
+        '2022-11-02': {selected: true, selectedColor: taskStatus[1].color},
+        '2022-11-03': {selected: true, selectedColor: taskStatus[2].color},
+        '2022-11-04': {selected: true, selectedColor: taskStatus[3].color},
+        '2022-11-05': {selected: true, selectedColor: taskStatus[4].color},
+        '2022-11-06': {selected: true, selectedColor: taskStatus[5].color},
+        '2022-11-07': {selected: true, selectedColor: taskStatus[6].color},
+        '2022-11-08': {selected: true, selectedColor: taskStatus[7].color},
 
 //        '2022-11-19': {disabled: true, disableTouchEvent: true}
       }}
@@ -44,7 +48,7 @@ export default function Homepage() {
     />
     <ScrollView>
     <Card>
-        <Card.Title title="Nov 1" subtitle="Good Job"  />
+        <Card.Title title={taskStatus[0].date} subtitle={taskStatus[0].color=="green"?"Good Job":taskStatus[0].color=="orange"?"Took a few Medicines Late":"Missed some Medicines"}  />
         <Card.Title title="Nov 2" subtitle="Took Medicines Late"  />
         <Card.Title title="Nov 3" subtitle="Good Job"  />
         <Card.Title title="Nov 4" subtitle="Took Medicines Late"  />
