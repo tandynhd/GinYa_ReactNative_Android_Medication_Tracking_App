@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, FlatList } from "react-native";
 import { Text, FAB, List } from "react-native-paper";
-//import formatTime from "minutes-seconds-milliseconds";
 import { Alert } from "react-native";
 import { Button } from "react-native";
+import { tasksList } from "./Atoms";
+import { useRecoilState } from "recoil";
 
-import tasksJSON from "./tasks.json";
+//import tasksJSON from "./tasks.json";
+
+
 
 function ViewNotes({ navigation }) {
   const [hour, setHour] = useState(new Date().getHours());
@@ -14,6 +17,8 @@ function ViewNotes({ navigation }) {
   const [date, setDate] = useState(new Date().getDate());
   const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
+  const [taskList, setTaskList] = useRecoilState(tasksList);
+//  console.log(taskList);
 
   useEffect(() => {
     let secTimer = setInterval(() => {
@@ -28,34 +33,33 @@ function ViewNotes({ navigation }) {
     return () => clearInterval(secTimer);
   }, []);
 
-  const [notes, setNotes] = useState(tasksJSON);
-  const addNote = (note) => {
-    note.id = notes.length + 1;
-    setNotes([...notes, note]); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-  };
-  // notes.sort(notes.noteTime);
-  notes.sort((a, b) => {
-//    console.log(a.noteTime, b.noteTime);
-    return a.noteTime - b.noteTime;
-  });
+
+
+//  const [notes, setNotes] = useState(tasksJSON);
+//  const addNote = (note) => {
+//    note.id = notes.length + 1;
+//    setNotes([...notes, note]); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+//  };
+//  // notes.sort(notes.noteTime);
+
 //  console.log(notes);
 
   return (
     <>
       <View style={styles.container}>
         <Text style={styles.listTitle}>
-          Current Date - {date}/{month}/{year}{" "}
+          Date - {date}/{month}/{year}{" "}
         </Text>
         <Text style={styles.listTitle}>
-          Current Time - {hour}:{minute}:{seconds}
+          Time - {hour}:{minute}:{seconds}
         </Text>
-        {notes.length === 0 ? (
+        {taskList.length === 0 ? (
           <View style={styles.titleContainer}>
             <Text style={styles.title}>You do not have any tasks</Text>
           </View>
         ) : (
           <FlatList
-            data={notes}
+            data={taskList}
             renderItem={({ item }) => (
               <List.Item
                 title={
@@ -76,7 +80,6 @@ function ViewNotes({ navigation }) {
                 }
               />
             )}
-            keyExtractor={(item) => item.id.toString()}
           />
         )}
       </View>

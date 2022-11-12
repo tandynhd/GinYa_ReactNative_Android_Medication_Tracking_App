@@ -6,11 +6,14 @@ import AddTasks from "./pages/addMeds";
 import ViewCalendar from "./pages/viewCalendar";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import ViewMeds from "./pages/viewMeds";
+import { RecoilRoot } from "recoil";
 
 class AddTasksFunc extends React.Component {
   render() {
     return (
+    <RecoilRoot>
       <AddTasks />
+     </RecoilRoot>
     )
   }
 }
@@ -18,7 +21,9 @@ class AddTasksFunc extends React.Component {
 class ViewCalendarFunc extends React.Component {
   render() {
     return (
+    <RecoilRoot>
       <ViewCalendar />
+      </RecoilRoot>
     )
   }
 }
@@ -26,7 +31,9 @@ class ViewCalendarFunc extends React.Component {
 class ViewTasksFunc extends React.Component {
   render() {
     return (
+    <RecoilRoot>
       <ViewMeds />
+      </RecoilRoot>
     )
   }
 }
@@ -80,7 +87,7 @@ function MyTabBar({ state, descriptors, navigation }) {
             }}
           >
             <Icon
-                  name="home" size={30} color="#fffaf0"
+                  name={route.name=="View Tasks" ?"home": route.name=="Add Tasks"?"plus":"calendar"} size={30} color= {isFocused ? '#fffaf0' : '#696969'}
             />
             <Text style={{ color: isFocused ? '#fffaf0' : '#696969', fontWeight: 'bold'}}>
               {label}

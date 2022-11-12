@@ -9,6 +9,8 @@ import SelRep from '../components/addMedicines/SelectRepeat';
 import TaskPri from '../components/addMedicines/TaskPriority';
 import { TextInput } from 'react-native-paper';
 //import tasksJSON from "./tasks.json"
+import { useRecoilState } from "recoil";
+import { tasksList } from "./Atoms"
 
 import {
   SafeAreaView,
@@ -28,32 +30,30 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-export default function Homepage() {
+export default function AddMedsPage() {
   const [date, setDate] = useState(new Date());
   const [taskName, setTaskName] = useState("");
   const [taskDesc, setTaskDesc] = useState("");
+  const [taskList, setTaskList] = useRecoilState(tasksList);
+  console.log(taskList);
+
 
   const setNotification = () => {
     Notifications.scheduleNotification(date, taskName, taskDesc);
-//    const newTask = {
-//        "id":5,
-//        "noteTitle": taskName,
-//        "noteValue": taskDesc,
-//        "noteTime": "0900"
-//
-//      };
-//    const fs = require("fs");
-//    let tasksJSON = fs.readFileSync("tasks.json","utf-8");
-//    let tasksJSON2 = JSON.parse(tasksJSON);
-//    tasksJSON2.push(newTask);
-//    tasksJSON = JSON.stringify(tasksJSON2);
-//    fs.writeFileSync("tasks.json", tasksJSON, "utf-8")
+    hour1 = JSON.stringify(date).slice(12,14);
+    hour = (parseInt(hour1)+7) + "";
+    minutes = JSON.stringify(date).slice(15,17);
+    time = hour+minutes;
+    setTaskList((oldTasks) => [
+          ...oldTasks,
+          {
+             "noteTitle": taskName,
+              "noteValue": taskDesc,
+              "noteTime": time
 
+            },
+        ]);
   };
-
-  const _goBack = () => {console.log('Went back')};
-  const _handleSearch = () => console.log('Searching');
-  const _handleMore = () => console.log('Shown more');
 
   const [text, setText] = React.useState("");
 
