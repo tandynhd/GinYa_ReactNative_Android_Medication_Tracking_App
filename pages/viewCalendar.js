@@ -27,8 +27,8 @@ export default function Homepage() {
     const [taskStatus, setTaskStatus] = useRecoilState(tasksStatus);
 //    console.log(typeof taskStatus[0].date);
   return (
-    <View style={{paddingTop: 10, flex:1}}>
-    <Calendar
+    <View style={{padding: 5, margin: 5, flex:1}}>
+    <Calendar style={{padding: 5, margin:5,  borderRadius: 15,}}
 //        initialDate={'2022-11-09'}
       // Collection of dates that have to be marked. Default = {}
       markedDates={{
@@ -47,18 +47,28 @@ export default function Homepage() {
       enableSwipeMonths={true}
     />
     <ScrollView>
-    <Card>
-        <Card.Title title={taskStatus[0].date} subtitle={taskStatus[0].color=="green"?"Good Job":taskStatus[0].color=="orange"?"Took a few Medicines Late":"Missed some Medicines"}  />
-        <Card.Title title="Nov 2" subtitle="Took Medicines Late"  />
-        <Card.Title title="Nov 3" subtitle="Good Job"  />
-        <Card.Title title="Nov 4" subtitle="Took Medicines Late"  />
-        <Card.Title title="Nov 5" subtitle="Took Medicines Late"  />
-        <Card.Title title="Nov 6" subtitle="Took Medicines Late"  />
-        <Card.Title title="Nov 7" subtitle="Missed Medicines"  />
-        <Card.Title title="Nov 8" subtitle="Missed Few Medicines"  />
+    <Card style={{padding: 5, margin: 5, borderRadius: 15}}>
+        <Card.Title style={styles.cardCon} title={taskStatus[0].date} subtitle={taskStatus[0].color=="green"?"Good Job":taskStatus[0].color=="orange"?"Took a few Medicines Late":"Missed some Medicines"}  />
+        <Card.Title style={styles.cardCon} title="Nov 2" subtitle="Took Medicines Late"  />
+        <Card.Title style={styles.cardCon} title="Nov 3" subtitle="Good Job"  />
+        <Card.Title style={styles.cardCon} title="Nov 4" subtitle="Took Medicines Late"  />
+        <Card.Title style={styles.cardCon} title="Nov 5" subtitle="Took Medicines Late"  />
+        <Card.Title style={styles.cardCon} title="Nov 6" subtitle="Took Medicines Late"  />
+        <Card.Title style={styles.cardCon} title="Nov 7" subtitle="Missed Medicines"  />
+        <Card.Title style={styles.cardCon} title="Nov 8" subtitle="Missed Few Medicines"  />
       </Card>
     </ScrollView>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+    cardCon: {
+        marginVertical: 5, marginHorizontal: 10,
+        backgroundColor: '#dcdcdc',
+        borderRadius: 10,
+        padding: 5,
+        elevation: 5
+    },
+})
 
