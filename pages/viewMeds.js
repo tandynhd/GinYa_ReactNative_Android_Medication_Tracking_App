@@ -7,7 +7,7 @@ import { tasksList } from "./Atoms";
 import { useRecoilState } from "recoil";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
-function ViewNotes({ navigation }) {
+function ViewMeds({ navigation }) {
   const [hour, setHour] = useState(new Date().getHours());
   const [minute, setMinute] = useState(new Date().getMinutes());
   const [seconds, setSeconds] = useState(new Date().getSeconds());
@@ -34,12 +34,11 @@ function ViewNotes({ navigation }) {
   return (
     <>
       <View style={styles.container}>
+      <View style={styles.dateTimeCon}>
         <Text style={styles.listTitle}>
           Date - {date}/{month}/{year}{" "}
         </Text>
-        <Text style={styles.listTitle}>
-          Time - {hour}:{minute}:{seconds}
-        </Text>
+      </View>
         {taskList.length === 0 ? (
           <View style={styles.titleContainer}>
             <Text style={styles.title}>You do not have any tasks</Text>
@@ -94,7 +93,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     paddingHorizontal: 10,
-    paddingVertical: 20,
+    paddingVertical: 5,
   },
   titleContainer: {
     alignItems: "center",
@@ -131,7 +130,15 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       elevation: 5,
       marginVertical: 10
-    }
+    },
+  dateTimeCon: {
+    backgroundColor: "lightskyblue",
+    paddingHorizontal: 20,
+    paddingVertical: 5,
+    borderRadius: 10,
+    elevation: 5,
+    marginVertical: 10
+  }
 });
 
-export default ViewNotes;
+export default ViewMeds;
