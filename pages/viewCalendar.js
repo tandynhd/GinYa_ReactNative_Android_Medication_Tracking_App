@@ -25,24 +25,27 @@ import {
 
 export default function Homepage() {
     const [taskStatus, setTaskStatus] = useRecoilState(tasksStatus);
+    const eye = {key: 'eye', color: 'red', selectedDotColor: 'blue'};
+    const ear = {key: 'ear', color: 'blue', selectedDotColor: 'blue'};
+    const head = {key: 'head', color: 'green'};
+    const ankle = {key: 'ankle', color: 'purple'};
+    const hip = {key: 'hip', color: 'organge'};
 //    console.log(typeof taskStatus[0].date);
   return (
     <View style={{padding: 5, margin: 5, flex:1}}>
     <Calendar style={{padding: 5, margin:5,  borderRadius: 15,}}
-//        initialDate={'2022-11-09'}
-      // Collection of dates that have to be marked. Default = {}
+      markingType={'multi-dot'}
       markedDates={{
-//        '2022-11-09': {marked: true, dotColor: 'white', activeOpacity: 100},
-        '2022-11-01': {selected: true, selectedColor: taskStatus[0].color},
-        '2022-11-02': {selected: true, selectedColor: taskStatus[1].color},
-        '2022-11-03': {selected: true, selectedColor: taskStatus[2].color},
-        '2022-11-04': {selected: true, selectedColor: taskStatus[3].color},
-        '2022-11-05': {selected: true, selectedColor: taskStatus[4].color},
-        '2022-11-06': {selected: true, selectedColor: taskStatus[5].color},
-        '2022-11-07': {selected: true, selectedColor: taskStatus[6].color},
-        '2022-11-08': {selected: true, selectedColor: taskStatus[7].color},
+        '2022-11-09': {dots: [eye, ear, head], selected: true, selectedColor: '#7FB5FF'},
+        '2022-11-01': {dots: [eye, hip], selectedColor: taskStatus[0].color},
+        '2022-11-02': {dots: [eye, ankle, head], selectedColor: taskStatus[1].color},
+        '2022-11-03': {dots: [eye, ear, head], selectedColor: taskStatus[2].color},
+        '2022-11-04': {dots: [ear, hip], selectedColor: taskStatus[3].color},
+        '2022-11-05': {dots: [hip], selectedColor: taskStatus[4].color},
+        '2022-11-06': {dots: [eye, ear], selectedColor: taskStatus[5].color},
+        '2022-11-07': {dots: [eye], selectedColor: taskStatus[6].color},
+        '2022-11-08': {dots: [head], selectedColor: taskStatus[7].color},
 
-//        '2022-11-19': {disabled: true, disableTouchEvent: true}
       }}
       enableSwipeMonths={true}
     />
