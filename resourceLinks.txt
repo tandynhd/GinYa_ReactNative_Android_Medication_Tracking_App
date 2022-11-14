@@ -2,8 +2,9 @@ npx react-native run-android
 npm install @react-navigation/native
 npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
 npm install --save react-native-calendars
-
 npm i recoil@0.7.6
+
+npm i lottie-react-native
 
 
 

@@ -73,8 +73,8 @@ export default function AddMedsPage() {
     <>
     <View style = {{flex:1}}>
         <ScrollView>
-            <View style={{ padding: 5, marginVertical: 5, marginHorizontal: 10, backgroundColor: '#dcdcdc', borderRadius: 10, elevation: 5}}>
-                <Text style={{color: 'black', fontWeight: 'bold' }}> Medication Name and Description</Text>
+            <View style={{ padding: 5, marginVertical: 5, marginHorizontal: 10, backgroundColor: '#E8F0F2', borderRadius: 10, elevation: 5}}>
+                <Text style={{color: 'black', fontWeight: 'bold' }}> Task Name and Description</Text>
                   <TextInput
                     label="Task Name"
                     mode="outlined"
@@ -93,7 +93,7 @@ export default function AddMedsPage() {
                     />
             </View>
             <View style={styles.container1} >
-                <Text style={{color: 'black', fontWeight: 'bold', padding: 5, textAlign: 'left' }}>Choose Medication Time</Text>
+                <Text style={{color: 'black', fontWeight: 'bold', padding: 5, textAlign: 'left' }}>Task Time</Text>
                 <DatePicker mode="datetime" date={date} onDateChange={setDate} />
             </View>
             <View style={styles.container} name="Repeat Notification">
@@ -114,7 +114,7 @@ export default function AddMedsPage() {
                 </View>
             </View>
             <View style={styles.container} name="Select Category">
-                <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Medication Category</Text>
+                <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Task Category</Text>
                 <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap"}}>
                     <Button style={active=="1"?styles.buttonActive:styles.button} title="Eye" icon="eye" mode='elevated' textColor={active=="1"?"black":"white"} onPress={() => setActive("1")}>
                         Eye
@@ -155,7 +155,7 @@ export default function AddMedsPage() {
                     </Button>
                 </View>
             </View>
-            <Button style={{margin: 5, backgroundColor: "lightskyblue"}} textColor="black" fontWeight="bold" title="Set notification" mode="elevated" onPress={setNotification}> Set Notification </Button>
+            <Button style={{margin: 5, backgroundColor: "#001D6E"}} textColor="white" fontWeight="bold" title="Set notification" mode="elevated" onPress={setNotification}> Set Notification </Button>
         </ScrollView>
         </View>
     </>
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         marginVertical: 5, marginHorizontal: 10,
-        backgroundColor: '#dcdcdc',
+        backgroundColor: '#E8F0F2',
         borderRadius: 10,
         padding: 5,
         elevation: 5
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 1,
         paddingVertical: 0,
         borderRadius: 10,
-        backgroundColor: "#979797",
+        backgroundColor: "#C9CCD5",
         alignSelf: "flex-start",
         marginHorizontal: "1%",
         marginBottom: 6,
@@ -198,7 +198,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 1,
         paddingVertical: 0,
         borderRadius: 10,
-        backgroundColor: "lightskyblue",
+        backgroundColor: "#39A2DB",
         alignSelf: "flex-start",
         marginHorizontal: "1%",
         marginBottom: 6,

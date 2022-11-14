@@ -6,6 +6,7 @@ import { Button, Image } from "react-native";
 import { tasksList } from "./Atoms";
 import { useRecoilState } from "recoil";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import Lottie from 'lottie-react-native';
 
 function ViewNotes({ navigation }) {
   const [hour, setHour] = useState(new Date().getHours());
@@ -30,16 +31,24 @@ function ViewNotes({ navigation }) {
     return () => clearInterval(secTimer);
   }, []);
 
+//  const toggleItemCompletion = () => {
+//      const newList = setTaskList(todoList, index, {
+//        ...item,
+//        isComplete: !item.isComplete,
+//      });
+
 
   return (
     <>
       <View style={styles.container}>
+      <View style={{flexDirection:"row", justifyContent:"space-around"}}>
         <Text style={styles.listTitle}>
           Date - {date}/{month}/{year}{" "}
         </Text>
         <Text style={styles.listTitle}>
           Time - {hour}:{minute}:{seconds}
         </Text>
+        </View>
         {taskList.length === 0 ? (
           <View style={styles.titleContainer}>
             <Text style={styles.title}>You do not have any tasks</Text>
@@ -51,33 +60,24 @@ function ViewNotes({ navigation }) {
             renderItem={({ item }) => ( !item.done?
             <View >
                 <TouchableOpacity style={{justifyContent:"center"}}>
-                      <List.Item
-                        style={styles.TaskList}
-                        title={
-                          item.noteTime.slice(0, 2) +
+                <View style={[styles.TaskList]}>
+                      <Text style={item.noteTime.slice(0, 2) <= hour? item.noteTime.slice(2, 4) < minute? styles.listTitlePassed: styles.listTitle: styles.listTitle} >
+                          {item.noteTime.slice(0, 2) +
                           ":" +
                           item.noteTime.slice(2, 4) +
                           " - " +
-                          item.noteTitle
-                        }
-                        description={item.noteValue}
-                        descriptionNumberOfLines={1}
-                        titleStyle={
-                          item.noteTime.slice(0, 2) <= hour
-                            ? item.noteTime.slice(2, 4) < minute
-                              ? styles.listTitlePassed
-                              : styles.listTitle
-                            : styles.listTitle
-                        }
-                      />
+                          item.noteTitle}
+                      </Text>
+                      <Text style={{fontSize:20}}>{item.noteValue}</Text>
                     <View style={{flexDirection: "row", justifyContent: "space-around"}}>
                         <Text >Repeat: {item.repeat}</Text>
                         <Text >Category: {item.category}</Text>
                         <Text >Priority: {item.priority}</Text>
                     </View>
                     <View style={{flexDirection: "row", justifyContent: "space-around", paddingVertical: 5}}>
-                        <Icon name={"eye"} size={30}/>
+                        <Lottie source={require("./cloudy.json")} autoPlay loop style={{ height: 100, width:100 }}/>
                         <Image source={require('../components/static/dorzolamide.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>
+                    </View>
                     </View>
                 </TouchableOpacity>
               </View>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   TaskList: {
-    backgroundColor: "#dcdcdc",
+    backgroundColor: "#E8F0F2",
     padding: 5,
     borderRadius: 10,
     marginVertical: 5,

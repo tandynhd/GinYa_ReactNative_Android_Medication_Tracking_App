@@ -11,7 +11,9 @@ import { RecoilRoot } from "recoil";
 class AddTasksFunc extends React.Component {
   render() {
     return (
+
       <AddTasks />
+
     )
   }
 }
@@ -27,7 +29,9 @@ class ViewCalendarFunc extends React.Component {
 class ViewTasksFunc extends React.Component {
   render() {
     return (
+
       <ViewMeds />
+
     )
   }
 }
@@ -74,7 +78,7 @@ function MyTabBar({ state, descriptors, navigation }) {
             onLongPress={onLongPress}
             style={{
                 flex: 1, alignItems: 'center',
-                backgroundColor: isFocused ? '#808080' : '#dcdcdc',
+                backgroundColor: isFocused ? '#001D6E' : '#C9CCD5',
                 borderRadius: 5,
                 margin: 5,
                 padding: 5
