@@ -58,10 +58,12 @@ function ViewNotes({ navigation }) {
             <Text style={styles.title}>You do not have any tasks</Text>
           </View>
         ) : (
+
           <FlatList
             data={taskList}
             renderItem={({ item }) => (
               <List.Item
+                style={styles.TaskList}
                 title={
                   item.noteTime.slice(0, 2) +
                   ":" +
@@ -113,8 +115,16 @@ const styles = StyleSheet.create({
   },
   listTitlePassed: {
     fontSize: 20,
-    color: "red",
+    color: "black",
+    fontWeight: 'bold'
   },
+  TaskList: {
+    backgroundColor: "#dcdcdc",
+    padding: 5,
+    borderRadius: 10,
+    marginVertical: 5,
+    elevation: 5
+  }
 });
 
 export default ViewNotes;
