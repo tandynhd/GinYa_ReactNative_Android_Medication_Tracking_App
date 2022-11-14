@@ -4,6 +4,7 @@ export const tasksList = atom({
   key: "tasksList",
   default: [
              {
+               "id": 1,
                "noteTitle": "Test",
                "noteValue": "noesfhasjkd shadkfhsadf",
                "noteTime": "1000",
@@ -13,6 +14,7 @@ export const tasksList = atom({
                "done": false
              },
              {
+               "id": 2,
                "noteTitle": "Test2",
                "noteValue": "noesfhasjkd shadkfhsadf",
                "noteTime": "0900",
@@ -22,6 +24,7 @@ export const tasksList = atom({
                "done": false
              },
              {
+               "id": 3,
                "noteTitle": "Test5",
                "noteValue": "noesfhasjkd shadkfhsadf",
                "noteTime": "1200",

@@ -15,7 +15,7 @@ function ViewNotes({ navigation }) {
   const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
   const [taskList, setTaskList] = useRecoilState(tasksList);
-//  console.log(20<=10);
+//  console.log(taskList.length);
 
   useEffect(() => {
     let secTimer = setInterval(() => {

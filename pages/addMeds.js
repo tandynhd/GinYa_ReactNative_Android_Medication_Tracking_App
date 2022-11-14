@@ -39,7 +39,7 @@ export default function AddMedsPage() {
   const [taskCategory, setTaskCategory] = useState("Eye");
   const [taskPriority, setTaskPriority] = useState("Medium");
   const [taskList, setTaskList] = useRecoilState(tasksList);
-//  console.log(taskList);
+
 
 
   const setNotification = () => {
@@ -51,17 +51,21 @@ export default function AddMedsPage() {
     setTaskList((oldTasks) => [
           ...oldTasks,
           {
+              "id": taskList.length+1,
              "noteTitle": taskName,
               "noteValue": taskDesc,
               "noteTime": time,
               "repeat": taskRepeat,
               "category": taskCategory,
-              "priority": taskPriority
+              "priority": taskPriority,
+              "done":false
+
             },
         ].sort((a, b) => {
                          return a.noteTime - b.noteTime;
                        }));
     Alert.alert("Task Added", taskName+" : "+taskDesc);
+    console.log(taskList);
   };
 
 //  const [text, setText] = React.useState("");
