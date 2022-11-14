@@ -11,6 +11,7 @@ import { TextInput } from 'react-native-paper';
 //import tasksJSON from "./tasks.json"
 import { useRecoilState } from "recoil";
 import { tasksList } from "./Atoms"
+import { Alert } from "react-native";
 
 import {
   SafeAreaView,
@@ -34,6 +35,9 @@ export default function AddMedsPage() {
   const [date, setDate] = useState(new Date());
   const [taskName, setTaskName] = useState("");
   const [taskDesc, setTaskDesc] = useState("");
+  const [taskRepeat, setTaskRepeat] = useState("Daily");
+  const [taskCategory, setTaskCategory] = useState("Eye");
+  const [taskPriority, setTaskPriority] = useState("Medium");
   const [taskList, setTaskList] = useRecoilState(tasksList);
 //  console.log(taskList);
 
@@ -49,12 +53,15 @@ export default function AddMedsPage() {
           {
              "noteTitle": taskName,
               "noteValue": taskDesc,
-              "noteTime": time
-
+              "noteTime": time,
+              "repeat": taskRepeat,
+              "category": taskCategory,
+              "priority": taskPriority
             },
         ].sort((a, b) => {
                          return a.noteTime - b.noteTime;
                        }));
+    Alert.alert("Task Added", taskName+" : "+taskDesc);
   };
 
 //  const [text, setText] = React.useState("");

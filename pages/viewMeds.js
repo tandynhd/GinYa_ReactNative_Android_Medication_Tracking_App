@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
 import { Text, FAB, List } from "react-native-paper";
 import { Alert } from "react-native";
-import { Button } from "react-native";
+import { Button, Image } from "react-native";
 import { tasksList } from "./Atoms";
 import { useRecoilState } from "recoil";
-
-//import tasksJSON from "./tasks.json";
-
-
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 function ViewNotes({ navigation }) {
   const [hour, setHour] = useState(new Date().getHours());
@@ -18,7 +15,7 @@ function ViewNotes({ navigation }) {
   const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
   const [taskList, setTaskList] = useRecoilState(tasksList);
-//  console.log(taskList);
+//  console.log(20<=10);
 
   useEffect(() => {
     let secTimer = setInterval(() => {
@@ -33,16 +30,6 @@ function ViewNotes({ navigation }) {
     return () => clearInterval(secTimer);
   }, []);
 
-
-
-//  const [notes, setNotes] = useState(tasksJSON);
-//  const addNote = (note) => {
-//    note.id = notes.length + 1;
-//    setNotes([...notes, note]); // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-//  };
-//  // notes.sort(notes.noteTime);
-
-//  console.log(taskList);
 
   return (
     <>
@@ -62,25 +49,36 @@ function ViewNotes({ navigation }) {
           <FlatList
             data={taskList}
             renderItem={({ item }) => (
-              <List.Item
-                style={styles.TaskList}
-                title={
-                  item.noteTime.slice(0, 2) +
-                  ":" +
-                  item.noteTime.slice(2, 4) +
-                  " - " +
-                  item.noteTitle
-                }
-                description={item.noteValue}
-                descriptionNumberOfLines={1}
-                titleStyle={
-                  item.noteTime.slice(0, 2) <= hour
-                    ? item.noteTime.slice(2, 4) < minute
-                      ? styles.listTitlePassed
-                      : styles.listTitle
-                    : styles.listTitle
-                }
-              />
+            <View >
+                <TouchableOpacity style={{justifyContent:"center"}} >
+                      <List.Item
+                        style={styles.TaskList}
+                        title={
+                          item.noteTime.slice(0, 2) +
+                          ":" +
+                          item.noteTime.slice(2, 4) +
+                          " - " +
+                          item.noteTitle
+                        }
+                        description={item.noteValue}
+                        descriptionNumberOfLines={1}
+                        titleStyle={
+                          item.noteTime.slice(0, 2) <= hour
+                            ? item.noteTime.slice(2, 4) < minute
+                              ? styles.listTitlePassed
+                              : styles.listTitle
+                            : styles.listTitle
+                        }
+                      />
+                    <View style={{flexDirection: "row", justifyContent: "space-around"}}>
+                        <Text >Repeat: {item.repeat}</Text>
+                        <Text >Category: {item.category}</Text>
+                        <Text >Priority: {item.priority}</Text>
+                    </View>
+                    <Icon name={"hard-of-hearing"} size={30}/>
+                    <Image source={require('../components/static/BitToon.jpg')} style={{ width: 40, height: 40, borderRadius: 10 }}/>
+                </TouchableOpacity>
+              </View>
             )}
           />
         )}
@@ -112,10 +110,11 @@ const styles = StyleSheet.create({
   },
   listTitle: {
     fontSize: 20,
+    fontWeight: 'bold'
   },
   listTitlePassed: {
     fontSize: 20,
-    color: "black",
+    color: "red",
     fontWeight: 'bold'
   },
   TaskList: {
@@ -124,7 +123,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 5,
     elevation: 5
-  }
+  },
+  TaskListDesc: {
+      backgroundColor: "#dcdcdc",
+      borderRadius: 5,
+      elevation: 5,
+      marginVertical: 10
+    }
 });
 
 export default ViewNotes;
