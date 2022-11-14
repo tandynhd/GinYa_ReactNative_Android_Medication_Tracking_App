@@ -35,7 +35,7 @@ export default function AddMedsPage() {
   const [taskName, setTaskName] = useState("");
   const [taskDesc, setTaskDesc] = useState("");
   const [taskList, setTaskList] = useRecoilState(tasksList);
-  console.log(taskList);
+//  console.log(taskList);
 
 
   const setNotification = () => {
@@ -52,10 +52,12 @@ export default function AddMedsPage() {
               "noteTime": time
 
             },
-        ]);
+        ].sort((a, b) => {
+                         return a.noteTime - b.noteTime;
+                       }));
   };
 
-  const [text, setText] = React.useState("");
+//  const [text, setText] = React.useState("");
 
   return (
     <>

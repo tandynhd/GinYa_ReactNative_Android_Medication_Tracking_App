@@ -42,7 +42,7 @@ function ViewNotes({ navigation }) {
 //  };
 //  // notes.sort(notes.noteTime);
 
-//  console.log(notes);
+//  console.log(taskList);
 
   return (
     <>

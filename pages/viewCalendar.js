@@ -25,14 +25,14 @@ import {
 
 export default function Homepage() {
     const [taskStatus, setTaskStatus] = useRecoilState(tasksStatus);
-    console.log(typeof taskStatus[0].date);
+//    console.log(typeof taskStatus[0].date);
   return (
     <View style={{paddingTop: 10, flex:1}}>
     <Calendar
-        initialDate={'2022-11-09'}
+//        initialDate={'2022-11-09'}
       // Collection of dates that have to be marked. Default = {}
       markedDates={{
-        '2022-11-09': {marked: true, dotColor: 'white', activeOpacity: 100},
+//        '2022-11-09': {marked: true, dotColor: 'white', activeOpacity: 100},
         '2022-11-01': {selected: true, selectedColor: taskStatus[0].color},
         '2022-11-02': {selected: true, selectedColor: taskStatus[1].color},
         '2022-11-03': {selected: true, selectedColor: taskStatus[2].color},

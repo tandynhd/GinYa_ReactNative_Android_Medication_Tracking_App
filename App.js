@@ -11,9 +11,7 @@ import { RecoilRoot } from "recoil";
 class AddTasksFunc extends React.Component {
   render() {
     return (
-    <RecoilRoot>
       <AddTasks />
-     </RecoilRoot>
     )
   }
 }
@@ -21,9 +19,7 @@ class AddTasksFunc extends React.Component {
 class ViewCalendarFunc extends React.Component {
   render() {
     return (
-    <RecoilRoot>
       <ViewCalendar />
-      </RecoilRoot>
     )
   }
 }
@@ -31,9 +27,7 @@ class ViewCalendarFunc extends React.Component {
 class ViewTasksFunc extends React.Component {
   render() {
     return (
-    <RecoilRoot>
       <ViewMeds />
-      </RecoilRoot>
     )
   }
 }
@@ -103,6 +97,7 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
+  <RecoilRoot>
     <NavigationContainer>
       <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
         <Tab.Screen name="View Tasks" component={ViewTasksFunc} />
@@ -110,5 +105,6 @@ export default function App() {
         <Tab.Screen name="View Calendar" component={ViewCalendarFunc} />
       </Tab.Navigator>
     </NavigationContainer>
+    </RecoilRoot>
   );
 }

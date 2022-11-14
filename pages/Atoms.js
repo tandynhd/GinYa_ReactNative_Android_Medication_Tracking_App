@@ -22,9 +22,7 @@ export const tasksList = atom({
 
              },
 
-           ].sort((a, b) => {
-                return a.noteTime - b.noteTime;
-              })
+           ]
 });
 
 export const tasksStatus = atom({
