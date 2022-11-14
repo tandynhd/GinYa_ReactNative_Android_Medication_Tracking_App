@@ -6,23 +6,31 @@ export const tasksList = atom({
              {
                "noteTitle": "Test",
                "noteValue": "noesfhasjkd shadkfhsadf",
-               "noteTime": "1000"
-
+               "noteTime": "1000",
+               "repeat": "Daily",
+               "category":"Eye",
+               "priority": "Low"
              },
              {
                "noteTitle": "Test2",
                "noteValue": "noesfhasjkd shadkfhsadf",
-               "noteTime": "0900"
-
+               "noteTime": "0900",
+               "repeat": "Monthly",
+               "category":"Ear",
+               "priority": "High"
              },
              {
                "noteTitle": "Test5",
                "noteValue": "noesfhasjkd shadkfhsadf",
-               "noteTime": "1200"
-
+               "noteTime": "1200",
+               "repeat": "Weekly",
+               "category":"Head",
+               "priority": "Medium"
              },
 
-           ]
+           ].sort((a, b) => {
+                                     return a.noteTime - b.noteTime;
+                                   })
 });
 
 export const tasksStatus = atom({
