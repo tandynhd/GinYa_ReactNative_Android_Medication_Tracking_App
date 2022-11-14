@@ -9,7 +9,8 @@ export const tasksList = atom({
                "noteTime": "1000",
                "repeat": "Daily",
                "category":"Eye",
-               "priority": "Low"
+               "priority": "Low",
+               "done": false
              },
              {
                "noteTitle": "Test2",
@@ -17,7 +18,8 @@ export const tasksList = atom({
                "noteTime": "0900",
                "repeat": "Monthly",
                "category":"Ear",
-               "priority": "High"
+               "priority": "High",
+               "done": false
              },
              {
                "noteTitle": "Test5",
@@ -25,7 +27,8 @@ export const tasksList = atom({
                "noteTime": "1200",
                "repeat": "Weekly",
                "category":"Head",
-               "priority": "Medium"
+               "priority": "Medium",
+               "done": true
              },
 
            ].sort((a, b) => {

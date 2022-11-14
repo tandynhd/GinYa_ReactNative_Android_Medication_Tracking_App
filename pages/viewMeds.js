@@ -48,9 +48,9 @@ function ViewNotes({ navigation }) {
 
           <FlatList
             data={taskList}
-            renderItem={({ item }) => (
+            renderItem={({ item }) => ( !item.done?
             <View >
-                <TouchableOpacity style={{justifyContent:"center"}} >
+                <TouchableOpacity style={{justifyContent:"center"}}>
                       <List.Item
                         style={styles.TaskList}
                         title={
@@ -75,11 +75,13 @@ function ViewNotes({ navigation }) {
                         <Text >Category: {item.category}</Text>
                         <Text >Priority: {item.priority}</Text>
                     </View>
-                    <Icon name={"hard-of-hearing"} size={30}/>
-                    <Image source={require('../components/static/BitToon.jpg')} style={{ width: 40, height: 40, borderRadius: 10 }}/>
+                    <View style={{flexDirection: "row", justifyContent: "space-around", paddingVertical: 5}}>
+                        <Icon name={"eye"} size={30}/>
+                        <Image source={require('../components/static/dorzolamide.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>
+                    </View>
                 </TouchableOpacity>
               </View>
-            )}
+            :<View />)}
           />
         )}
       </View>
