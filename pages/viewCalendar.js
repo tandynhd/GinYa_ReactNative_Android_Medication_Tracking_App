@@ -29,7 +29,7 @@ export default function Homepage() {
     const ear = {key: 'ear', color: 'blue', selectedDotColor: 'blue'};
     const head = {key: 'head', color: 'green'};
     const ankle = {key: 'ankle', color: 'purple'};
-    const hip = {key: 'hip', color: 'organge'};
+    const hip = {key: 'hip', color: 'orange'};
 //    console.log(typeof taskStatus[0].date);
   return (
     <View style={{padding: 5, margin: 5, flex:1}}>
@@ -39,7 +39,7 @@ export default function Homepage() {
         }}
       markingType={'multi-dot'}
       markedDates={{
-        '2022-11-09': {dots: [eye, ear, head], selected: true, selectedColor: '#7FB5FF'},
+        '2022-11-09': {dots: [eye, ear, head, ankle], selected: true, selectedColor: '#7FB5FF'},
         '2022-11-01': {dots: [eye, hip], selectedColor: taskStatus[0].color},
         '2022-11-02': {dots: [eye, ankle, head], selectedColor: taskStatus[1].color},
         '2022-11-03': {dots: [eye, ear, head], selectedColor: taskStatus[2].color},
