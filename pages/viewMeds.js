@@ -121,7 +121,8 @@ const styles = StyleSheet.create({
   },
   TaskList: {
     backgroundColor: "#E8F0F2",
-    padding: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     borderRadius: 10,
     marginVertical: 5,
     elevation: 5
