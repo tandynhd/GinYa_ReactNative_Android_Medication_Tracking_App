@@ -19,7 +19,7 @@ export const tasksList = atom({
                "noteValue": "noesfhasjkd shadkfhsadf",
                "noteTime": "0900",
                "repeat": "Monthly",
-               "category":"Ear",
+               "category":"Head",
                "priority": "High",
                "done": false
              },

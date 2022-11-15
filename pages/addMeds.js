@@ -35,14 +35,17 @@ export default function AddMedsPage() {
   const [date, setDate] = useState(new Date());
   const [taskName, setTaskName] = useState("");
   const [taskDesc, setTaskDesc] = useState("");
-  const [taskRepeat, setTaskRepeat] = useState("Daily");
-  const [taskCategory, setTaskCategory] = useState("Eye");
-  const [taskPriority, setTaskPriority] = useState("Medium");
+//  const [taskRepeat, setTaskRepeat] = useState("Daily");
+//  const [taskCategory, setTaskCategory] = useState("Eye");
+//  const [taskPriority, setTaskPriority] = useState("Medium");
   const [taskList, setTaskList] = useRecoilState(tasksList);
-  const [active, setActive] = useState("1");
+  const [activeRep, setActiveRep] = useState("Daily");
+  const [activeCat, setActiveCat] = useState("Eye");
+  const [activePri, setActivePri] = useState("Mid");
 
   const setNotification = () => {
     Notifications.scheduleNotification(date, taskName, taskDesc);
+    console.log(date);
     hour1 = JSON.stringify(date).slice(12,14);
     hour = (parseInt(hour1)+7) + "";
     minutes = JSON.stringify(date).slice(15,17);
@@ -54,9 +57,9 @@ export default function AddMedsPage() {
              "noteTitle": taskName,
               "noteValue": taskDesc,
               "noteTime": time,
-              "repeat": taskRepeat,
-              "category": taskCategory,
-              "priority": taskPriority,
+              "repeat": activeRep,
+              "category": activeCat,
+              "priority": activePri,
               "done":false
 
             },
@@ -99,16 +102,16 @@ export default function AddMedsPage() {
             <View style={styles.container} name="Repeat Notification">
                 <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Repeat Notification Every</Text>
                 <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap" }}>
-                    <Button style={active=="1"?styles.buttonActive:styles.button} title="day" mode='elevated' textColor={active=="1"?"black":"white"} onPress={() => setActive("1")}>
+                    <Button style={activeRep=="Daily"?styles.buttonActive:styles.button} title="day" mode='elevated' textColor={activeRep=="Daily"?"black":"white"} onPress={() => setActiveRep("Daily")}>
                         Day
                     </Button>
-                    <Button style={active=="2"?styles.buttonActive:styles.button} title="week" mode="elevated" textColor={active=="2"?"black":"white"} onPress={() => setActive("2")}>
+                    <Button style={activeRep=="Weekly"?styles.buttonActive:styles.button} title="week" mode="elevated" textColor={activeRep=="Weekly"?"black":"white"} onPress={() => setActiveRep("Weekly")}>
                         Week
                     </Button>
-                    <Button style={active=="3"?styles.buttonActive:styles.button} title="month" mode="elevated" textColor={active=="3"?"black":"white"} onPress={() => setActive("3")}>
+                    <Button style={activeRep=="Monthly"?styles.buttonActive:styles.button} title="month" mode="elevated" textColor={activeRep=="Monthly"?"black":"white"} onPress={() => setActiveRep("Monthly")}>
                         Month
                     </Button>
-                    <Button style={active=="4"?styles.buttonActive:styles.button} title="+" mode="elevated" textColor={active=="4"?"black":"white"} onPress={() => setActive("4")}>
+                    <Button style={activeRep=="Default"?styles.buttonActive:styles.button} title="+" mode="elevated" textColor={activeRep=="Default"?"black":"white"} onPress={() => setActiveRep("Default")}>
                        +
                     </Button>
                 </View>
@@ -116,22 +119,22 @@ export default function AddMedsPage() {
             <View style={styles.container} name="Select Category">
                 <Text style={{color: 'black', fontWeight: 'bold', padding: 5}}>Task Category</Text>
                 <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap"}}>
-                    <Button style={active=="1"?styles.buttonActive:styles.button} title="Eye" icon="eye" mode='elevated' textColor={active=="1"?"black":"white"} onPress={() => setActive("1")}>
+                    <Button style={activeCat=="Eye"?styles.buttonActive:styles.button} title="Eye" icon="eye" mode='elevated' textColor={activeCat=="Eye"?"black":"white"} onPress={() => setActiveCat("Eye")}>
                         Eye
                     </Button>
-                    <Button style={active=="2"?styles.buttonActive:styles.button} title="Ear" icon="volume-high" mode="elevated" textColor={active=="2"?"black":"white"} onPress={() => setActive("2")}>
+                    <Button style={activeCat=="Ear"?styles.buttonActive:styles.button} title="Ear" icon="volume-high" mode="elevated" textColor={activeCat=="Ear"?"black":"white"} onPress={() => setActiveCat("Ear")}>
                         Ear
                     </Button>
-                    <Button style={active=="3"?styles.buttonActive:styles.button} title="Head" icon="head-flash" mode="elevated" textColor={active=="3"?"black":"white"} onPress={() => setActive("3")}>
+                    <Button style={activeCat=="Head"?styles.buttonActive:styles.button} title="Head" icon="head-flash" mode="elevated" textColor={activeCat=="Head"?"black":"white"} onPress={() => setActiveCat("Head")}>
                         Head
                     </Button>
-                    <Button style={active=="4"?styles.buttonActive:styles.button} title="Ankles" icon="foot-print" mode="elevated" textColor={active=="4"?"black":"white"} onPress={() => setActive("4")}>
+                    <Button style={activeCat=="Ankle"?styles.buttonActive:styles.button} title="Ankle" icon="foot-print" mode="elevated" textColor={activeCat=="Ankle"?"black":"white"} onPress={() => setActiveCat("Ankle")}>
                        Ankles
                     </Button>
-                    <Button style={active=="5"?styles.buttonActive:styles.button} title="Hip" icon="account" mode="elevated" textColor={active=="5"?"black":"white"} onPress={() => setActive("5")}>
+                    <Button style={activeCat=="Hip"?styles.buttonActive:styles.button} title="Hip" icon="account" mode="elevated" textColor={activeCat=="Hip"?"black":"white"} onPress={() => setActiveCat("Hip")}>
                        Hip
                     </Button>
-                    <Button style={active=="6"?styles.buttonActive:styles.button} title="+" mode='elevated' textColor={active=="6"?"black":"white"} onPress={() => setActive("6")}>
+                    <Button style={activeCat=="Default"?styles.buttonActive:styles.button} title="+" mode='elevated' textColor={activeCat=="Default"?"black":"white"} onPress={() => setActiveCat("Default")}>
                        +
                     </Button>
                 </View>
@@ -141,16 +144,16 @@ export default function AddMedsPage() {
                     Task Priority
                 </Text>
                 <View style={{ flexDirection:"row", alignItems:"space-around", flexWrap: "wrap"}}>
-                    <Button style={active=="1"?styles.buttonActive:styles.button} title="low" mode='contained-tonal' textColor={active=="1"?"black":"white"} onPress={() => setActive("1")}>
+                    <Button style={activePri=="Low"?styles.buttonActive:styles.button} title="low" mode='contained-tonal' textColor={activePri=="Low"?"black":"white"} onPress={() => setActivePri("Low")}>
                         Low
                     </Button>
-                    <Button style={active=="2"?styles.buttonActive:styles.button} title="mid" mode="elevated" textColor={active=="2"?"black":"white"} onPress={() => setActive("2")}>
+                    <Button style={activePri=="Mid"?styles.buttonActive:styles.button} title="mid" mode="elevated" textColor={activePri=="Mid"?"black":"white"} onPress={() => setActivePri("Mid")}>
                         Mid
                     </Button>
-                    <Button style={active=="3"?styles.buttonActive:styles.button} title="high" mode="elevated" textColor={active=="3"?"black":"white"} onPress={() => setActive("3")}>
+                    <Button style={activePri=="High"?styles.buttonActive:styles.button} title="high" mode="elevated" textColor={activePri=="High"?"black":"white"} onPress={() => setActivePri("High")}>
                         High
                     </Button>
-                    <Button style={active=="4"?styles.buttonActive:styles.button} title="+" mode="elevated" textColor={active=="4"?"black":"white"} onPress={() => setActive("4")}>
+                    <Button style={activePri=="Default"?styles.buttonActive:styles.button} title="+" mode="elevated" textColor={activePri=="Default"?"black":"white"} onPress={() => setActivePri("Default")}>
                        +
                     </Button>
                 </View>

@@ -7,6 +7,7 @@ import { tasksList } from "./Atoms";
 import { useRecoilState } from "recoil";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import Lottie from 'lottie-react-native';
+//import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 function ViewNotes({ navigation }) {
   const [hour, setHour] = useState(new Date().getHours());
@@ -30,12 +31,47 @@ function ViewNotes({ navigation }) {
 
     return () => clearInterval(secTimer);
   }, []);
+    const renderSwitch = (animation) => {
+        switch (animation) {
+                        case "Eye": return <Lottie source={require("../components/animations/eye.json")} autoPlay loop style={{ height: 100, width:100 }}/>;
+                        case "Head": return <Lottie source={require("../components/animations/head.json")} autoPlay loop style={{ height: 100, width:100 }}/>;
+                        case "Hip": return <Lottie source={require("../components/animations/hip.json")} autoPlay loop style={{ height: 100, width:100 }}/>;
+                        case "Ankle": return <Lottie source={require("../components/animations/ankle.json")} autoPlay loop style={{ height: 100, width:100 }}/>;
+                        case "Ear": return <Lottie source={require("../components/animations/ear.json")} autoPlay loop style={{ height: 100, width:100 }}/>;
+                      }
+        };
 
-//  const toggleItemCompletion = () => {
-//      const newList = setTaskList(todoList, index, {
-//        ...item,
-//        isComplete: !item.isComplete,
-//      });
+    const renderImage = (image) => {
+            switch (image) {
+                            case "Eye": return <Image source={require('../components/static/dorzolamide.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
+                            case "Head": return <Image source={require('../components/static/flexitear.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
+                            case "Hip": return <Image source={require('../components/static/hemorol.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
+                            case "Ankle": return <Image source={require('../components/static/prodein.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
+                            case "Ear": return <Image source={require('../components/static/dorzolamide.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
+                          }
+            };
+  const toggleItemCompletion = (item) => {
+      setTaskList((oldTasks) => [
+        ...oldTasks,
+        {
+            "id": item.id,
+           "noteTitle": item.noteTitle,
+            "noteValue": item.noteValue,
+            "noteTime": item.noteTime,
+            "repeat": item.repeat,
+            "category": item.category,
+            "priority": item.priority,
+            "done":true
+
+          },
+      ]
+//      .filter(el => {
+//          const duplicate = seen.has(el.id);
+//          seen.add(el.id);
+//          return !duplicate})
+          );
+        Alert.alert("Task", item.noteTitle +" : "+item.noteValue + "\n" + item.category);
+      };
 
 
   return (
@@ -59,7 +95,7 @@ function ViewNotes({ navigation }) {
             data={taskList}
             renderItem={({ item }) => ( !item.done?
             <View >
-                <TouchableOpacity style={{justifyContent:"center"}}>
+                <TouchableOpacity onPress={() => toggleItemCompletion(item)} style={{justifyContent:"center"}}>
                 <View style={[styles.TaskList]}>
                       <Text style={item.noteTime.slice(0, 2) <= hour? item.noteTime.slice(2, 4) < minute? styles.listTitlePassed: styles.listTitle: styles.listTitle} >
                           {item.noteTime.slice(0, 2) +
@@ -69,14 +105,14 @@ function ViewNotes({ navigation }) {
                           item.noteTitle}
                       </Text>
                       <Text style={{fontSize:20}}>{item.noteValue}</Text>
-                    <View style={{flexDirection: "row", justifyContent: "space-around"}}>
+                    <View style={{flexDirection: "row", justifyContent: "space-around", paddingVertical: 5}}>
                         <Text >Repeat: {item.repeat}</Text>
                         <Text >Category: {item.category}</Text>
                         <Text >Priority: {item.priority}</Text>
                     </View>
                     <View style={{flexDirection: "row", justifyContent: "space-around", paddingVertical: 5}}>
-                        <Lottie source={require("../components/animations/hip.json")} autoPlay loop style={{ height: 100, width:100 }}/>
-                        <Image source={require('../components/static/dorzolamide.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>
+                        {renderSwitch(item.category)}
+                        {renderImage(item.category)}
                     </View>
                     </View>
                 </TouchableOpacity>
@@ -124,15 +160,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 10,
-    marginVertical: 5,
+    marginVertical: 2,
     elevation: 5
   },
-  TaskListDesc: {
-      backgroundColor: "#dcdcdc",
-      borderRadius: 5,
-      elevation: 5,
-      marginVertical: 10
-    }
 });
 
 export default ViewNotes;
