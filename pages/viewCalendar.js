@@ -34,6 +34,9 @@ export default function Homepage() {
   return (
     <View style={{padding: 5, margin: 5, flex:1}}>
     <Calendar style={{padding: 5, margin:5,  borderRadius: 15,}}
+       onDayPress={day => {
+          console.log('selected day', day);
+        }}
       markingType={'multi-dot'}
       markedDates={{
         '2022-11-09': {dots: [eye, ear, head], selected: true, selectedColor: '#7FB5FF'},

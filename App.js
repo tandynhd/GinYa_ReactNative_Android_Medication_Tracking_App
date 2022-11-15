@@ -103,7 +103,7 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
   <RecoilRoot>
-    <NavigationContainer>
+    <NavigationContainer style={{backgroundColor: "#001D6E"}}>
       <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
         <Tab.Screen name="View Tasks" component={ViewTasksFunc} />
         <Tab.Screen name="Add Tasks" component={AddTasksFunc} />
