@@ -75,7 +75,7 @@ function ViewNotes({ navigation }) {
                         <Text >Priority: {item.priority}</Text>
                     </View>
                     <View style={{flexDirection: "row", justifyContent: "space-around", paddingVertical: 5}}>
-                        <Lottie source={require("./cloudy.json")} autoPlay loop style={{ height: 100, width:100 }}/>
+                        <Lottie source={require("../components/animations/hip.json")} autoPlay loop style={{ height: 100, width:100 }}/>
                         <Image source={require('../components/static/dorzolamide.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>
                     </View>
                     </View>
