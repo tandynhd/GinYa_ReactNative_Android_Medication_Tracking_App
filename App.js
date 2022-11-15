@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+//import { createStackNavigator } from "@react-navigation/stack";
 import AddTasks from "./pages/addMeds";
 import ViewCalendar from "./pages/viewCalendar";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
@@ -79,7 +80,7 @@ function MyTabBar({ state, descriptors, navigation }) {
             style={{
                 flex: 1, alignItems: 'center',
                 backgroundColor: isFocused ? '#001D6E' : '#C9CCD5',
-                borderRadius: 5,
+                borderRadius: 15,
                 margin: 5,
                 padding: 5,
                 elevation: 10
@@ -99,15 +100,16 @@ function MyTabBar({ state, descriptors, navigation }) {
 }
 
 const Tab = createBottomTabNavigator();
+//const Stack = createStackNavigator();
 
 export default function App() {
   return (
   <RecoilRoot>
-    <NavigationContainer style={{backgroundColor: "#001D6E"}}>
+    <NavigationContainer>
       <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
-        <Tab.Screen name="View Tasks" component={ViewTasksFunc} />
-        <Tab.Screen name="Add Tasks" component={AddTasksFunc} />
-        <Tab.Screen name="View Calendar" component={ViewCalendarFunc} />
+        <Tab.Screen name="View Tasks" options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} component={ViewTasksFunc} />
+        <Tab.Screen name="Add Tasks" options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} component={AddTasksFunc} />
+        <Tab.Screen name="View Calendar" options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} component={ViewCalendarFunc} />
       </Tab.Navigator>
     </NavigationContainer>
     </RecoilRoot>
