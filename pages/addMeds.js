@@ -78,7 +78,7 @@ export default function AddMedsPage() {
                   <TextInput
                     label="Task Name"
                     mode="outlined"
-                    style={{ marginVertical: 2, marginHorizontal: 5, backgroundColor: "#f8f8ff", color: "black" }}
+                    style={{ marginVertical: 2, marginHorizontal: 5, backgroundColor: "white", color: "black" }}
                     onChangeText = {text => setTaskName(text)}
                     value = {taskName}
                   />
@@ -87,7 +87,7 @@ export default function AddMedsPage() {
                       label="Task Description"
                       mode="outlined"
                       multiline
-                      style={{ marginVertical: 2, marginHorizontal: 5, backgroundColor: "#f8f8ff", color: "black"}}
+                      style={{ marginVertical: 2, marginHorizontal: 5, backgroundColor: "white", color: "black"}}
                       onChangeText = {text => setTaskDesc(text)}
                       value = {taskDesc}
                     />

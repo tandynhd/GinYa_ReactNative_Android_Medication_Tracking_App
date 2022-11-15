@@ -81,7 +81,8 @@ function MyTabBar({ state, descriptors, navigation }) {
                 backgroundColor: isFocused ? '#001D6E' : '#C9CCD5',
                 borderRadius: 5,
                 margin: 5,
-                padding: 5
+                padding: 5,
+                elevation: 10
             }}
           >
             <Icon
