@@ -43,11 +43,11 @@ function ViewNotes({ navigation }) {
 
     const renderImage = (image) => {
             switch (image) {
-                            case "Eye": return <Image source={require('../components/static/dorzolamide.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
-                            case "Head": return <Image source={require('../components/static/flexitear.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
-                            case "Hip": return <Image source={require('../components/static/hemorol.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
-                            case "Ankle": return <Image source={require('../components/static/prodein.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
-                            case "Ear": return <Image source={require('../components/static/dorzolamide.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
+                            case "Eye": return <Image source={require('../components/static/eye.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
+                            case "Head": return <Image source={require('../components/static/head.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
+                            case "Hip": return <Image source={require('../components/static/hip.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
+                            case "Ankle": return <Image source={require('../components/static/ankle.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
+                            case "Ear": return <Image source={require('../components/static/ear.jpg')} style={{ width: 100, height: 100, borderRadius: 10 }}/>;
                           }
             };
   const toggleItemCompletion = (item) => {

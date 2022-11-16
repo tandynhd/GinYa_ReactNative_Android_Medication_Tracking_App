@@ -3,8 +3,13 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert, ActivityIndicator } from 'react-native';
 import firebase from './firebase';
 import Signup from './signup';
+import { useRecoilState } from "recoil";
+import { authenticatePage } from "../pages/Atoms";
+
+
 
 export default class Login extends Component {
+
 
   constructor() {
     super();
@@ -13,12 +18,14 @@ export default class Login extends Component {
       password: '',
       isLoading: false
     }
+
   }
   updateInputVal = (val, prop) => {
     const state = this.state;
     state[prop] = val;
     this.setState(state);
   }
+//  const [authPage, setAuthPage] = useRecoilState(authenticatePage)
   userLogin = () => {
     if(this.state.email === '' && this.state.password === '') {
       Alert.alert('Enter details to signin!')

@@ -13,7 +13,10 @@ import {
   Text,
   useColorScheme,
   View,
+  Image
 } from 'react-native';
+
+import Lottie from 'lottie-react-native';
 
 import {
   Colors,
@@ -29,13 +32,31 @@ export default function Homepage() {
     const ear = {key: 'ear', color: 'blue'};
     const head = {key: 'head', color: 'green'};
     const ankle = {key: 'ankle', color: 'purple'};
-    const hip = {key: 'hip', color: 'orange'};
+    const hip = {key: 'hip', color: "#DC5F00"}; //orange
     const red = "#eb9393";
     const yellow = "#ffde4d";
     const green = "#ade29d";
+    const w = 50;
+    const h = 50;
+
     const [dateDetails, setDateDetails] = useState(0);
     const [dateDesc, setDateDesc] = useState([])
-    console.log(taskStatus[dateDetails].eye?"Eye, ":"" + "ear");
+    const missedMeds = [
+       taskStatus[dateDetails].eye?"Eye":"",
+       taskStatus[dateDetails].ear?"Ear":"",
+       taskStatus[dateDetails].head?"Head":"",
+       taskStatus[dateDetails].hip?"Hip":"",
+       taskStatus[dateDetails].ankle?"Ankle":""
+    ]
+    const renderImage = (image) => {
+                switch (image) {
+                                case "Eye": return <Image source={require('../components/static/eye.jpg')} style={{ width: w, height: h, borderRadius: 10 }}/>;
+                                case "Head": return <Image source={require('../components/static/head.jpg')} style={{ width: w, height: h, borderRadius: 10 }}/>;
+                                case "Hip": return <Image source={require('../components/static/hip.jpg')} style={{ width: w, height: h, borderRadius: 10 }}/>;
+                                case "Ankle": return <Image source={require('../components/static/ankle.jpg')} style={{ width: w, height: h, borderRadius: 10 }}/>;
+                                case "Ear": return <Image source={require('../components/static/ear.jpg')} style={{ width: w, height: h, borderRadius: 10 }}/>;
+                              }
+                };
   return (
     <View style={{padding: 5, margin: 5, flex:1}}>
     <Calendar style={{padding: 5, margin:5,  borderRadius: 15,}}
@@ -72,8 +93,20 @@ export default function Homepage() {
     <ScrollView>
     <Card style={{padding: 5, margin: 5, borderRadius: 15}}>
         <Card.Title style={styles.cardCon} title={taskStatus[dateDetails].date} subtitle={taskStatus[dateDetails].color==green?"Good Job":taskStatus[dateDetails].color==yellow?"Took the Following Medicines Late":"Missed the Following Medicines"}  />
-        <Text> {taskStatus[dateDetails].eye?"Eye, ":"" + taskStatus[dateDetails].ear?"Ear, ":"" } </Text>
-
+        <View style={{flexDirection: "row", flexWrap:"wrap", padding:2, justifyContent:"space-around"}}>
+            {missedMeds[0]&&<Text> {missedMeds[0]} </Text>}
+            {missedMeds[1]&&<Text> {missedMeds[1]} </Text>}
+            {missedMeds[2]&&<Text> {missedMeds[2]} </Text>}
+            {missedMeds[3]&&<Text> {missedMeds[3]} </Text>}
+            {missedMeds[4]&&<Text> {missedMeds[4]} </Text>}
+            </View>
+        <View style={{flexDirection: "row", flexWrap:"wrap", padding:2, justifyContent:"space-around"}}>
+         {renderImage(missedMeds[0])}
+         {renderImage(missedMeds[1])}
+         {renderImage(missedMeds[2])}
+         {renderImage(missedMeds[3])}
+         {renderImage(missedMeds[4])}
+         </View>
       </Card>
     </ScrollView>
     </View>
