@@ -51,25 +51,21 @@ function ViewNotes({ navigation }) {
                           }
             };
   const toggleItemCompletion = (item) => {
-      setTaskList((oldTasks) => [
-        ...oldTasks,
-        {
-            "id": item.id,
-           "noteTitle": item.noteTitle,
-            "noteValue": item.noteValue,
-            "noteTime": item.noteTime,
-            "repeat": item.repeat,
-            "category": item.category,
-            "priority": item.priority,
-            "done":true
-
-          },
-      ]
-//      .filter(el => {
-//          const duplicate = seen.has(el.id);
-//          seen.add(el.id);
-//          return !duplicate})
-          );
+//      setTaskList((oldTasks) => [
+//        ...oldTasks,
+//        {
+//            "id": item.id,
+//           "noteTitle": item.noteTitle,
+//            "noteValue": item.noteValue,
+//            "noteTime": item.noteTime,
+//            "repeat": item.repeat,
+//            "category": item.category,
+//            "priority": item.priority,
+//            "done":true
+//
+//          },
+//      ]
+//          );
         Alert.alert("Task", item.noteTitle +" : "+item.noteValue + "\n" + item.category);
       };
 

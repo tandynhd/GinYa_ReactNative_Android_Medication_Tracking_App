@@ -7,8 +7,6 @@ import ViewCalendar from "./pages/viewCalendar";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import ViewMeds from "./pages/viewMeds";
 import { RecoilRoot } from "recoil";
-import Login from"./components/login";
-import Signup from"./components/signup";
 import Autheticate from"./components/authenticate";
 import firebase from './components/firebase';
 import { StyleSheet, TextInput, Button, Alert, ActivityIndicator } from 'react-native';
