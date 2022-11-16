@@ -6,9 +6,7 @@ npm i recoil@0.7.6
 npm i lottie-react-native
 
 npm i firebase
-//npm install expo-print
-//npm install expo-sharing
-//npm i expo-status-bar
+npm i react-native-print
 
 
 
