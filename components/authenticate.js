@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput, Button, Alert, ActivityIndicator,Tou
 import { NavigationContainer } from '@react-navigation/native';
 import { RecoilRoot } from "recoil";
 import firebase from './firebase';
-import { authenticate } from "../pages/Atoms";
+import { authenticatePage } from "../pages/Atoms";
 import { useRecoilState } from "recoil";
 
 
@@ -14,7 +14,7 @@ class Login extends React.Component{
         email: '',
           password: '',
           isLoading: false,
-          signin:true
+          signin:true,
         }
       }
       updateInputVal = (val, prop) => {
@@ -78,7 +78,7 @@ class Login extends React.Component{
             />
             <Text
               style={styles.loginText}
-              onPress={() => this.setState({signin:false})}>
+              onPress={() => this.setState({signin: false})}>
               Don't have account? Click here to signup
             </Text>
           </View>
@@ -87,6 +87,7 @@ class Login extends React.Component{
     }
 
 class SignUp extends React.Component{
+
     constructor() {
         super();
         this.state = {
@@ -143,7 +144,7 @@ class SignUp extends React.Component{
               placeholder="Name"
               placeholderTextColor='#497174'
               value={this.state.displayName}
-              onChangeText={(val) => this.updateInputVal(val, 'displayName')}
+              onChangeText={(val) => setDisplayName(val)}
             />
             <TextInput
               style={styles.inputStyle}
@@ -168,7 +169,7 @@ class SignUp extends React.Component{
             />
             <Text
               style={styles.loginText}
-              onPress={() => this.setState({signin:true})}>
+              onPress={() => this.setState({signin: true})}>
               Already Registered ? Click here to login
             </Text>
             </View>
@@ -177,11 +178,11 @@ class SignUp extends React.Component{
     }
 
 export default function App() {
-    const [authState, setAuthState] = useRecoilState(authenticate);
+    const [authPageState, setAuthPageState] = useRecoilState(authenticatePage);
 
     return (
     <RecoilRoot>
-        {(authState)? <SignUp />: <Login />}
+        {(authPageState)? <SignUp authPageState={authPageState}/>: <Login />}
     </RecoilRoot>
 
 );

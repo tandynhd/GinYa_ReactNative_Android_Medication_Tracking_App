@@ -6,7 +6,9 @@ import AddTasks from "./pages/addMeds";
 import ViewCalendar from "./pages/viewCalendar";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import ViewMeds from "./pages/viewMeds";
+import { useRecoilState } from "recoil";
 import { RecoilRoot } from "recoil";
+import { authenticateState } from "./pages/Atoms";
 import Autheticate from"./components/authenticate";
 import firebase from './components/firebase';
 import { StyleSheet, TextInput, Button, Alert, ActivityIndicator } from 'react-native';
@@ -114,7 +116,7 @@ function MyTabBar({ state, descriptors, navigation }) {
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-
+//const [authState, setAuthState] = useRecoilState(authenticateState);
   return (
   <RecoilRoot>
     {(true)? <Ginya />: <Autheticate />}
