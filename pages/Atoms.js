@@ -188,14 +188,45 @@ export const tasksStatus = atom({
                  "color": green
                },
                {
-                  "date": "2022-11-23",
-                  "color": yellow,
-                  "eye": true,
-                },
+                 "date": "2022-11-23",
+                 "color": green,
+
+               },
                {
                   "date": "2022-11-24",
                   "color": green
                 },
+               {
+                  "date": "2022-11-25",
+                  "color": green,
+
+                },
+                {
+                   "date": "2022-11-26",
+                   "color": green
+                 },
+                 {
+               "date": "2022-11-27",
+               "color": green,
+
+             },
+             {
+                "date": "2022-11-28",
+                "color": green
+              },
+              {
+                "date": "2022-11-29",
+                "color": green,
+
+              },
+              {
+                 "date": "2022-11-30",
+                 "color": green
+               },
+               {
+                "date": "2022-11-31",
+                "color": green
+              },
 
    ]
 });

@@ -104,7 +104,7 @@ function MyTabBar({ state, descriptors, navigation }) {
             onLongPress={onLongPress}
             style={{
                 flex: 1, alignItems: 'center',
-                backgroundColor: isFocused ? '#001D6E' : '#dcdcdc',
+                backgroundColor: isFocused ? '#001D6E' : '#E8F0F2',
                 borderRadius: 5,
                 margin: 5,
                 padding: 5

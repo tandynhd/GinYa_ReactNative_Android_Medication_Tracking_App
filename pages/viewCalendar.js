@@ -116,7 +116,7 @@ export default function Homepage() {
 const styles = StyleSheet.create({
     cardCon: {
         marginVertical: 5, marginHorizontal: 10,
-        backgroundColor: '#dcdcdc',
+        backgroundColor: '#E8F0F2',
         borderRadius: 10,
         padding: 5,
         elevation: 5
