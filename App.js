@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AddTasks from "./pages/addMeds";
 import ViewCalendar from "./pages/viewCalendar";
+import ReportGen from "./pages/pdfGenerator";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import ViewMeds from "./pages/viewMeds";
 import { useRecoilState } from "recoil";
@@ -19,9 +20,10 @@ function Ginya(){
 
                 <NavigationContainer>
                   <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
-                    <Tab.Screen name="View Tasks" component={ViewTasksFunc} />
-                    <Tab.Screen name="Add Tasks" component={AddTasksFunc} />
-                    <Tab.Screen name="View Calendar" component={ViewCalendarFunc} />
+                    <Tab.Screen options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} name="View Tasks" component={ViewTasksFunc} />
+                    <Tab.Screen options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} name="Add Tasks" component={AddTasksFunc} />
+                    <Tab.Screen options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} name="Calendar" component={ViewCalendarFunc} />
+                    <Tab.Screen options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} name="Report" component={ViewReportFunc} />
                   </Tab.Navigator>
                 </NavigationContainer>
 
@@ -48,6 +50,14 @@ class ViewTasksFunc extends React.Component {
   render() {
     return (
       <ViewMeds />
+    )
+  }
+}
+
+class ViewReportFunc extends React.Component {
+  render() {
+    return (
+      <ReportGen />
     )
   }
 }
@@ -94,14 +104,14 @@ function MyTabBar({ state, descriptors, navigation }) {
             onLongPress={onLongPress}
             style={{
                 flex: 1, alignItems: 'center',
-                backgroundColor: isFocused ? '#808080' : '#dcdcdc',
+                backgroundColor: isFocused ? '#001D6E' : '#dcdcdc',
                 borderRadius: 5,
                 margin: 5,
                 padding: 5
             }}
           >
             <Icon
-                  name={route.name=="View Tasks" ?"home": route.name=="Add Tasks"?"plus":"calendar"} size={30} color= {isFocused ? '#fffaf0' : '#696969'}
+                  name={route.name=="View Tasks" ?"home": route.name=="Add Tasks"?"plus": route.name=="Calendar"?"calendar":"file-pdf-o"} size={30} color= {isFocused ? '#fffaf0' : '#696969'}
             />
             <Text style={{ color: isFocused ? '#fffaf0' : '#696969', fontWeight: 'bold'}}>
               {label}

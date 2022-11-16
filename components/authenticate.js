@@ -182,7 +182,7 @@ export default function App() {
 
     return (
     <RecoilRoot>
-        {(authPageState)? <SignUp authPageState={authPageState}/>: <Login />}
+        {(!authPageState)? <SignUp authPageState={authPageState}/>: <Login />}
     </RecoilRoot>
 
 );
