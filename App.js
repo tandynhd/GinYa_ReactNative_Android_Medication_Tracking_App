@@ -2,19 +2,35 @@ import * as React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-//import { createStackNavigator } from "@react-navigation/stack";
 import AddTasks from "./pages/addMeds";
 import ViewCalendar from "./pages/viewCalendar";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import ViewMeds from "./pages/viewMeds";
 import { RecoilRoot } from "recoil";
+import Login from"./components/login"
+import Signup from"./components/signup"
+import firebase from './components/firebase';
+import { StyleSheet, TextInput, Button, Alert, ActivityIndicator } from 'react-native';
 
+function Ginya(){
+
+        return(
+
+                <NavigationContainer>
+                  <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
+                    <Tab.Screen name="View Tasks" component={ViewTasksFunc} />
+                    <Tab.Screen name="Add Tasks" component={AddTasksFunc} />
+                    <Tab.Screen name="View Calendar" component={ViewCalendarFunc} />
+                  </Tab.Navigator>
+                </NavigationContainer>
+
+        )
+
+}
 class AddTasksFunc extends React.Component {
   render() {
     return (
-
       <AddTasks />
-
     )
   }
 }
@@ -30,9 +46,7 @@ class ViewCalendarFunc extends React.Component {
 class ViewTasksFunc extends React.Component {
   render() {
     return (
-
       <ViewMeds />
-
     )
   }
 }
@@ -79,11 +93,10 @@ function MyTabBar({ state, descriptors, navigation }) {
             onLongPress={onLongPress}
             style={{
                 flex: 1, alignItems: 'center',
-                backgroundColor: isFocused ? '#001D6E' : '#C9CCD5',
-                borderRadius: 15,
+                backgroundColor: isFocused ? '#808080' : '#dcdcdc',
+                borderRadius: 5,
                 margin: 5,
-                padding: 5,
-                elevation: 10
+                padding: 5
             }}
           >
             <Icon
@@ -100,18 +113,13 @@ function MyTabBar({ state, descriptors, navigation }) {
 }
 
 const Tab = createBottomTabNavigator();
-//const Stack = createStackNavigator();
 
 export default function App() {
+
   return (
   <RecoilRoot>
-    <NavigationContainer>
-      <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
-        <Tab.Screen name="View Tasks" options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} component={ViewTasksFunc} />
-        <Tab.Screen name="Add Tasks" options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} component={AddTasksFunc} />
-        <Tab.Screen name="View Calendar" options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} component={ViewCalendarFunc} />
-      </Tab.Navigator>
-    </NavigationContainer>
-    </RecoilRoot>
+    {(1==1)? <Ginya />: <Login />}
+</RecoilRoot>
+
   );
 }
