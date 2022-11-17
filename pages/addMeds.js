@@ -46,10 +46,13 @@ export default function AddMedsPage() {
   const setNotification = () => {
     Notifications.scheduleNotification(date, taskName, taskDesc);
     console.log(date);
-    hour1 = JSON.stringify(date).slice(12,14);
-    hour = (parseInt(hour1)+7) + "";
-    minutes = JSON.stringify(date).slice(15,17);
+    console.log("newString: " + date.toString());
+    console.log("newString: " + date.toString().slice(16,18));
+    console.log("newString: " + date.toString().slice(19,21));
+    hour = date.toString().slice(16,18);
+    minutes = date.toString().slice(19,21);
     time = hour+minutes;
+    console.log(time)
     setTaskList((oldTasks) => [
           ...oldTasks,
           {
