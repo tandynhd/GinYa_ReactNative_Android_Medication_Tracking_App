@@ -20,22 +20,27 @@ export default function RNPrintExample(){
   }
 
   printHTML = () => {
-    reportList = []
+   // reportList = []
     htmlString = ""
     taskStatus.forEach((item) => {
+        if(Object.keys(item).length!=2){
         date = item.date;
         eye = item.eye?"Eye":"";
         ear = item.ear?"Ear":"";
         hip = item.hip?"Hip":"";
         head = item.head?"Head":"";
         ankle = item.ankle?"Ankle":"";
-        list = [date,eye,ear,hip,head,ankle];
-        reportList.push(list);
-        htmlString = htmlString + '<h1> Medicines missed/taken late on ' + date + ':</h1><h2>'+ eye +'</h2><h2>'+ ear +'</h2><h2>' + head + '</h2><h2>'+ hip +'</h2><h2>'+ ankle +'</h2>'}
+        message=item.color=="#ffde4d"?"Took the following medicines late on ":"Missed the following medicines on ";
+        //list = [date,eye,ear,hip,head,ankle];
+        console.log(Object.keys(item).length);
+        //reportList.push(list);
+        htmlString = htmlString + '<h2 style = "color:#001D6E; font-family:verdana; font-size: 200%;"> '+message + date + ':</h2><h3 style = "padding: 30px; display: list-item;list-style-type: square;list-style-position: inside; font-size:200%;" >'+ eye +' '+ ear+ ' ' + head +' '+ hip +' '+ ankle+' ' + '</h3>'
+        }
+    }
     );
 
     RNPrint.print({
-      html: htmlString
+      html: '<h1 style = "text:bold; font-size:300%;">'+'Patient Report'+'</h1>'+htmlString
     })
   }
 
