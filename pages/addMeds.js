@@ -1,12 +1,9 @@
-import SelCat from '../components/addMedicines/SelectCat';
 import type {Node} from 'react';
 import React, { useState } from 'react';
 import { Button } from 'react-native-paper';
 import DatePicker from 'react-native-date-picker';
 import PushNotification from 'react-native-push-notification';
 import Notifications from '../components/Notifications';
-import SelRep from '../components/addMedicines/SelectRepeat';
-import TaskPri from '../components/addMedicines/TaskPriority';
 import { TextInput } from 'react-native-paper';
 import { useRecoilState } from "recoil";
 import { tasksList } from "./Atoms"
@@ -41,10 +38,10 @@ export default function AddMedsPage() {
 
   const setNotification = () => {
     Notifications.scheduleNotification(date, taskName, taskDesc);
-    console.log(date);
-    console.log("newString: " + date.toString());
-    console.log("newString: " + date.toString().slice(16,18));
-    console.log("newString: " + date.toString().slice(19,21));
+//    console.log(date);
+//    console.log("newString: " + date.toString());
+//    console.log("newString: " + date.toString().slice(16,18));
+//    console.log("newString: " + date.toString().slice(19,21));
     hour = date.toString().slice(16,18);
     minutes = date.toString().slice(19,21);
     time = hour+minutes;

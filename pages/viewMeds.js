@@ -65,7 +65,7 @@ function ViewNotes({ navigation }) {
     const createTwoButtonAlert = (item) =>
         Alert.alert(
           "Task Completed",
-          "Remove Task From List?",
+          "Remove Task "+ item.noteTitle+" From List?",
           [
             {
               text: "Cancel",

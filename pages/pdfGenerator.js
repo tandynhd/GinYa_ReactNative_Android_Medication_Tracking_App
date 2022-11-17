@@ -31,9 +31,6 @@ export default function RNPrintExample(){
         head = item.head?"Head":"";
         ankle = item.ankle?"Ankle":"";
         message=item.color=="#ffde4d"?"Took the following medicines late on ":"Missed the following medicines on ";
-        //list = [date,eye,ear,hip,head,ankle];
-        console.log(Object.keys(item).length);
-        //reportList.push(list);
         htmlString = htmlString + '<h2 style = "color:#001D6E; font-family:verdana; font-size: 200%;"> '+message + date + ':</h2><h3 style = "padding: 30px; display: list-item;list-style-type: square;list-style-position: inside; font-size:200%;" >'+ eye +' '+ ear+ ' ' + head +' '+ hip +' '+ ankle+' ' + '</h3>'
         }
     }
