@@ -8,7 +8,6 @@ import Notifications from '../components/Notifications';
 import SelRep from '../components/addMedicines/SelectRepeat';
 import TaskPri from '../components/addMedicines/TaskPriority';
 import { TextInput } from 'react-native-paper';
-//import tasksJSON from "./tasks.json"
 import { useRecoilState } from "recoil";
 import { tasksList } from "./Atoms"
 import { Alert } from "react-native";
@@ -35,9 +34,6 @@ export default function AddMedsPage() {
   const [date, setDate] = useState(new Date());
   const [taskName, setTaskName] = useState("");
   const [taskDesc, setTaskDesc] = useState("");
-//  const [taskRepeat, setTaskRepeat] = useState("Daily");
-//  const [taskCategory, setTaskCategory] = useState("Eye");
-//  const [taskPriority, setTaskPriority] = useState("Medium");
   const [taskList, setTaskList] = useRecoilState(tasksList);
   const [activeRep, setActiveRep] = useState("Daily");
   const [activeCat, setActiveCat] = useState("Eye");
@@ -56,14 +52,13 @@ export default function AddMedsPage() {
     setTaskList((oldTasks) => [
           ...oldTasks,
           {
-              "id": taskList.length+1,
+              "key": taskList.length+1,
              "noteTitle": taskName,
               "noteValue": taskDesc,
               "noteTime": time,
               "repeat": activeRep,
               "category": activeCat,
               "priority": activePri,
-              "done":false
 
             },
         ].sort((a, b) => {
@@ -72,8 +67,6 @@ export default function AddMedsPage() {
     Alert.alert("Task Added", taskName+" : "+taskDesc);
     console.log(taskList);
   };
-
-//  const [text, setText] = React.useState("");
 
   return (
     <>

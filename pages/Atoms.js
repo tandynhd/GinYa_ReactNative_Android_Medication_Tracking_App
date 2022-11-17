@@ -8,34 +8,31 @@ export const tasksList = atom({
   key: "tasksList",
   default: [
              {
-               "id": 1,
+               "key": 1,
                "noteTitle": "Test",
                "noteValue": "noesfhasjkd shadkfhsadf",
                "noteTime": "1000",
                "repeat": "Daily",
                "category":"Eye",
-               "priority": "Low",
-               "done": false
+               "priority": "Low"
              },
              {
-               "id": 2,
+               "key": 2,
                "noteTitle": "Test2",
                "noteValue": "noesfhasjkd shadkfhsadf",
                "noteTime": "0900",
                "repeat": "Monthly",
                "category":"Head",
-               "priority": "High",
-               "done": false
+               "priority": "High"
              },
              {
-               "id": 3,
+               "key": 3,
                "noteTitle": "Test5",
                "noteValue": "noesfhasjkd shadkfhsadf",
                "noteTime": "1200",
                "repeat": "Weekly",
                "category":"Head",
-               "priority": "Medium",
-               "done": true
+               "priority": "Medium"
              },
 
            ].sort((a, b) => {

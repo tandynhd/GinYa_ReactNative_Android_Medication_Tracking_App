@@ -17,7 +17,7 @@ function ViewNotes({ navigation }) {
   const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
   const [taskList, setTaskList] = useRecoilState(tasksList);
-//  console.log(taskList.length);
+//  const [tempTaskList, setTempTaskList] = useState(tasksList);
 
   useEffect(() => {
     let secTimer = setInterval(() => {
@@ -51,23 +51,17 @@ function ViewNotes({ navigation }) {
                           }
             };
   const toggleItemCompletion = (item) => {
-//      setTaskList((oldTasks) => [
-//        ...oldTasks,
-//        {
-//            "id": item.id,
-//           "noteTitle": item.noteTitle,
-//            "noteValue": item.noteValue,
-//            "noteTime": item.noteTime,
-//            "repeat": item.repeat,
-//            "category": item.category,
-//            "priority": item.priority,
-//            "done":true
-//
-//          },
-//      ]
-//          );
-        Alert.alert("Task", item.noteTitle +" : "+item.noteValue + "\n" + item.category);
+    tempTaskList = taskList.slice()
+      for(var i = 0; i < tempTaskList.length; i++) {
+          if(tempTaskList[i].key == item.key) {
+              tempTaskList.splice(i, 1);
+              break;
+          }
+      }
+      setTaskList(tempTaskList);
+        Alert.alert("Task", item.noteTitle +" : "+item.noteValue + "\n" + "has been completed");
       };
+
 
 
   return (
@@ -89,7 +83,7 @@ function ViewNotes({ navigation }) {
 
           <FlatList
             data={taskList}
-            renderItem={({ item }) => ( !item.done?
+            renderItem={({ item }) => (
             <View >
                 <TouchableOpacity onPress={() => toggleItemCompletion(item)} style={{justifyContent:"center"}}>
                 <View style={[styles.TaskList]}>
@@ -112,8 +106,7 @@ function ViewNotes({ navigation }) {
                     </View>
                     </View>
                 </TouchableOpacity>
-              </View>
-            :<View />)}
+              </View>)}
           />
         )}
       </View>
