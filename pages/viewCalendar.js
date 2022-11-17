@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import { Avatar, Card, Title, Paragraph, Button } from 'react-native-paper';
 import { useRecoilState } from "recoil";
-import { tasksStatus } from "./Atoms"
+import { tasksStatus } from "./Atoms";
 
 import {
   SafeAreaView,
