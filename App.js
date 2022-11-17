@@ -105,7 +105,7 @@ function MyTabBar({ state, descriptors, navigation }) {
             style={{
                 flex: 1, alignItems: 'center',
                 backgroundColor: isFocused ? '#001D6E' : '#E8F0F2',
-                borderRadius: 5,
+                borderRadius: 10,
                 margin: 5,
                 padding: 5
             }}
