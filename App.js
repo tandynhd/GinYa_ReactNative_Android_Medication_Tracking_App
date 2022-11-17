@@ -20,7 +20,7 @@ function Ginya(){
 
                 <NavigationContainer>
                   <Tab.Navigator tabBar={(props) => <MyTabBar {...props} />}>
-                    <Tab.Screen options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} name="View Tasks" component={ViewTasksFunc} />
+                    <Tab.Screen options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} name="GinYa" component={ViewTasksFunc} />
                     <Tab.Screen options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} name="Add Tasks" component={AddTasksFunc} />
                     <Tab.Screen options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} name="Calendar" component={ViewCalendarFunc} />
                     <Tab.Screen options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} name="Report" component={ViewReportFunc} />
@@ -111,7 +111,7 @@ function MyTabBar({ state, descriptors, navigation }) {
             }}
           >
             <Icon
-                  name={route.name=="View Tasks" ?"home": route.name=="Add Tasks"?"plus": route.name=="Calendar"?"calendar":"file-pdf-o"} size={30} color= {isFocused ? '#fffaf0' : '#696969'}
+                  name={route.name=="GinYa" ?"home": route.name=="Add Tasks"?"plus": route.name=="Calendar"?"calendar":"file-pdf-o"} size={30} color= {isFocused ? '#fffaf0' : '#696969'}
             />
             <Text style={{ color: isFocused ? '#fffaf0' : '#696969', fontWeight: 'bold'}}>
               {label}

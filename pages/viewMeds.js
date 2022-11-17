@@ -59,9 +59,20 @@ function ViewNotes({ navigation }) {
           }
       }
       setTaskList(tempTaskList);
-        Alert.alert("Task", item.noteTitle +" : "+item.noteValue + "\n" + "has been completed");
       };
-
+    const createTwoButtonAlert = (item) =>
+        Alert.alert(
+          "Task Completed",
+          "Remove Task From List?",
+          [
+            {
+              text: "Cancel",
+              onPress: () => console.log("Cancel Pressed"),
+              style: "cancel"
+            },
+            { text: "OK", onPress: () => toggleItemCompletion(item) }
+          ]
+        );
 
 
   return (
@@ -77,7 +88,7 @@ function ViewNotes({ navigation }) {
         </View>
         {taskList.length === 0 ? (
           <View style={styles.titleContainer}>
-            <Text style={styles.title}>You do not have any tasks</Text>
+            <Text style={styles.title}>You do not have any tasks, Great Job!</Text>
           </View>
         ) : (
 
@@ -85,7 +96,7 @@ function ViewNotes({ navigation }) {
             data={taskList}
             renderItem={({ item }) => (
             <View >
-                <TouchableOpacity onPress={() => toggleItemCompletion(item)} style={{justifyContent:"center"}}>
+                <TouchableOpacity onPress={() => createTwoButtonAlert(item)} style={{justifyContent:"center"}}>
                 <View style={[styles.TaskList]}>
                       <Text style={item.noteTime.slice(0, 2) <= hour? item.noteTime.slice(2, 4) < minute? styles.listTitlePassed: styles.listTitle: styles.listTitle} >
                           {item.noteTime.slice(0, 2) +
