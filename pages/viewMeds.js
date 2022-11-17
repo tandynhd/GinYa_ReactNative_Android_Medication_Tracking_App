@@ -17,7 +17,7 @@ function ViewNotes({ navigation }) {
   const [month, setMonth] = useState(new Date().getMonth());
   const [year, setYear] = useState(new Date().getFullYear());
   const [taskList, setTaskList] = useRecoilState(tasksList);
-//  const [tempTaskList, setTempTaskList] = useState(tasksList);
+  const [tempRemovedList, setTempRemovedList] = useState(taskList);
 
   useEffect(() => {
     let secTimer = setInterval(() => {
@@ -38,6 +38,7 @@ function ViewNotes({ navigation }) {
                         case "Hip": return <Lottie source={require("../components/animations/hip.json")} autoPlay loop style={{ height: 100, width:100 }}/>;
                         case "Ankle": return <Lottie source={require("../components/animations/ankle.json")} autoPlay loop style={{ height: 100, width:100 }}/>;
                         case "Ear": return <Lottie source={require("../components/animations/ear.json")} autoPlay loop style={{ height: 100, width:100 }}/>;
+                        case "Undo": return <Lottie source={require("../components/animations/undo.json")} autoPlay loop style={{ height: 50, width:50 }}/>;
                       }
         };
 
@@ -51,6 +52,7 @@ function ViewNotes({ navigation }) {
                           }
             };
   const toggleItemCompletion = (item) => {
+    setTempRemovedList(taskList)
     tempTaskList = taskList.slice()
       for(var i = 0; i < tempTaskList.length; i++) {
           if(tempTaskList[i].key == item.key) {
@@ -91,7 +93,7 @@ function ViewNotes({ navigation }) {
             <Text style={styles.title}>You do not have any tasks, Great Job!</Text>
           </View>
         ) : (
-
+        <>
           <FlatList
             data={taskList}
             renderItem={({ item }) => (
@@ -119,6 +121,11 @@ function ViewNotes({ navigation }) {
                 </TouchableOpacity>
               </View>)}
           />
+          {tempRemovedList != taskList ?
+          <TouchableOpacity onPress={() => setTaskList(tempRemovedList)} style={{justifyContent: "center", alignItems: "center"}}>
+            {renderSwitch("Undo")}
+          </TouchableOpacity>:<></>}
+          </>
         )}
       </View>
     </>

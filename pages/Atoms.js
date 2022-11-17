@@ -9,28 +9,28 @@ export const tasksList = atom({
   default: [
              {
                "key": 1,
-               "noteTitle": "Test",
-               "noteValue": "noesfhasjkd shadkfhsadf",
-               "noteTime": "1000",
+               "noteTitle": "Walk",
+               "noteValue": "Walk for 5 minutes",
+               "noteTime": "0800",
                "repeat": "Daily",
-               "category":"Eye",
+               "category":"Hip",
                "priority": "Low"
              },
              {
                "key": 2,
-               "noteTitle": "Test2",
-               "noteValue": "noesfhasjkd shadkfhsadf",
-               "noteTime": "0900",
-               "repeat": "Monthly",
-               "category":"Head",
+               "noteTitle": "Glaucoma",
+               "noteValue": "Take 3 drops in each eye and wait for 5 minutes",
+               "noteTime": "1000",
+               "repeat": "Daily",
+               "category":"Eye",
                "priority": "High"
              },
              {
                "key": 3,
-               "noteTitle": "Test5",
-               "noteValue": "noesfhasjkd shadkfhsadf",
-               "noteTime": "1200",
-               "repeat": "Weekly",
+               "noteTitle": "Headache",
+               "noteValue": "Take 1 tiffy after breakfast",
+               "noteTime": "0900",
+               "repeat": "Daily",
                "category":"Head",
                "priority": "Medium"
              },
