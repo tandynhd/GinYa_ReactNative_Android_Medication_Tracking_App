@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Button } from 'react-native-paper';
 import {
   AppRegistry,
-  Button,
   StyleSheet,
   NativeModules,
   Platform,
@@ -62,8 +62,8 @@ export default function RNPrintExample(){
               />
           </View>
           <View style={styles.container}>
-            <Button onPress={this.printHTML} title="Generate Report" />
-            <Button onPress={this.printRemotePDF} title="Patient Profile" />
+            <Button style={{margin: 5, backgroundColor: "#001D6E"}} textColor="white" fontWeight="bold"mode="elevated"  onPress={this.printHTML} title="Generate Report">Generate Report </Button>
+            <Button style={{margin: 5, backgroundColor: "#001D6E"}} textColor="white" fontWeight="bold"mode="elevated"   onPress={this.printRemotePDF} title="Patient Profile">Patient Profile </Button>
           </View>
     </View>
     )
@@ -80,4 +80,5 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "flex-end"
   },
+
 });
