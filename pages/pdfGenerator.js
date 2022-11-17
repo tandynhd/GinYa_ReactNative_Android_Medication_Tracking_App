@@ -33,8 +33,6 @@ export default function RNPrintExample(){
         reportList.push(list);
         htmlString = htmlString + '<h1> Medicines missed/taken late on ' + date + ':</h1><h2>'+ eye +'</h2><h2>'+ ear +'</h2><h2>' + head + '</h2><h2>'+ hip +'</h2><h2>'+ ankle +'</h2>'}
     );
-//    console.log(reportList);
-    console.log(htmlString);
 
     RNPrint.print({
       html: htmlString
@@ -42,7 +40,7 @@ export default function RNPrintExample(){
   }
 
   printRemotePDF= () => {
-    RNPrint.print({ filePath: 'https://docs.google.com/presentation/d/1rHuXWJ9ty9jyP_jMuiZ0LiVC8q3bj_hBBwySW0wtElQ/export/pdf' })
+    RNPrint.print({ filePath: 'https://docs.google.com/document/d/1O-Riu7AtOX-3vhEmqjVcd0_Dom3Hn1KuFPrqm7i-ekw/export?format=pdf' })
   }
     const [taskStatus] = useRecoilState(tasksStatus);
     return (
@@ -60,7 +58,7 @@ export default function RNPrintExample(){
           </View>
           <View style={styles.container}>
             <Button onPress={this.printHTML} title="Generate Report" />
-            <Button onPress={this.printRemotePDF} title="View Documentation" />
+            <Button onPress={this.printRemotePDF} title="Patient Profile" />
           </View>
     </View>
     )
