@@ -42,7 +42,7 @@ export const tasksList = atom({
 
 export const authenticateState = atom({
     key: "authenticateState",
-    default: true
+    default: false
 });
 
 export const authenticatePage = atom({

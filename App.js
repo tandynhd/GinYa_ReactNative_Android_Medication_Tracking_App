@@ -7,15 +7,14 @@ import ViewCalendar from "./pages/viewCalendar";
 import ReportGen from "./pages/pdfGenerator";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import ViewMeds from "./pages/viewMeds";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { RecoilRoot } from "recoil";
 import { authenticateState } from "./pages/Atoms";
-import Autheticate from"./components/authenticate";
+import Authenticate from"./components/authenticate";
 import firebase from './components/firebase';
 import { StyleSheet, TextInput, Button, Alert, ActivityIndicator } from 'react-native';
 
 function Ginya(){
-
         return(
 
                 <NavigationContainer>
@@ -26,10 +25,9 @@ function Ginya(){
                     <Tab.Screen options={{headerTintColor: "white", headerStyle: {backgroundColor: "#001D6E"}}} name="Report" component={ViewReportFunc} />
                   </Tab.Navigator>
                 </NavigationContainer>
-
         )
-
 }
+
 class AddTasksFunc extends React.Component {
   render() {
     return (
@@ -126,11 +124,19 @@ function MyTabBar({ state, descriptors, navigation }) {
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-//const [authState, setAuthState] = useRecoilState(authenticateState);
-  return (
-  <RecoilRoot>
-    {(true)? <Ginya />: <Autheticate />}
-</RecoilRoot>
 
+  return (
+<RecoilRoot>
+    <Authhh />
+</RecoilRoot>
   );
+}
+
+function Authhh() {
+    const [authState, setAuthState] = useRecoilState(authenticateState);
+    return(
+    <>
+    {(authState)? <Ginya />: <Authenticate />}
+    </>
+    )
 }

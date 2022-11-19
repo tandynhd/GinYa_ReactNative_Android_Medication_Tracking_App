@@ -4,12 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { RecoilRoot } from "recoil";
 import firebase from './firebase';
 import { authenticatePage } from "../pages/Atoms";
+import { authenticateState } from "../pages/Atoms";
 import { useRecoilState } from "recoil";
 
-
 class Login extends React.Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
         email: '',
           password: '',
@@ -40,7 +40,7 @@ class Login extends React.Component{
               email: '',
               password: ''
             })
-            this.props.navigation.navigate('Dashboard')
+            this.props.changeAuthState()
           })
           .catch(error => this.setState({ errorMessage: error.message }))
         }
@@ -73,23 +73,26 @@ class Login extends React.Component{
             />
             <Button
               color="#3740FE"
-              title="Sign in"
+              title="Log in"
               onPress={() => this.userLogin()}
             />
-            <Text
-              style={styles.loginText}
-              onPress={() => this.setState({signin: false})}>
-              Don't have account? Click here to signup
-            </Text>
+            <TouchableOpacity
+              onPress={this.props.changeAuthPageState}
+              >
+              <Text>Dont have an account? Click here to signup</Text>
+            </TouchableOpacity>
           </View>
         );
       }
     }
 
+
+
+
 class SignUp extends React.Component{
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
           displayName: '',
           email: '',
@@ -98,6 +101,7 @@ class SignUp extends React.Component{
           signin:false
         }
       }
+
       updateInputVal = (val, prop) => {
         const state = this.state;
         state[prop] = val;
@@ -110,6 +114,7 @@ class SignUp extends React.Component{
           this.setState({
             isLoading: true,
           })
+
           firebase
           .auth()
           .createUserWithEmailAndPassword(this.state.email, this.state.password)
@@ -117,18 +122,19 @@ class SignUp extends React.Component{
             res.user.updateProfile({
               displayName: this.state.displayName
             })
-            console.log('User registered successfully!')
+            console.log("REGISTERED")
             this.setState({
               isLoading: false,
               displayName: '',
               email: '',
               password: ''
             })
-            this.props.navigation.navigate('Login')
+            this.props.changeAuthPageState()
           })
           .catch(error => this.setState({ errorMessage: error.message }))
         }
       }
+
       render() {
         if(this.state.isLoading){
           return(
@@ -144,7 +150,7 @@ class SignUp extends React.Component{
               placeholder="Name"
               placeholderTextColor='#497174'
               value={this.state.displayName}
-              onChangeText={(val) => setDisplayName(val)}
+              onChangeText={(val) => this.updateInputVal(val, 'displayName')}
             />
             <TextInput
               style={styles.inputStyle}
@@ -165,13 +171,14 @@ class SignUp extends React.Component{
             <Button
               color="#3740FE"
               title="Sign up"
-              onPress={() => this.registerUser()}
+              onPress={() => {this.registerUser()}}
+
             />
-            <Text
-              style={styles.loginText}
-              onPress={() => this.setState({signin: true})}>
-              Already Registered ? Click here to login
-            </Text>
+            <TouchableOpacity
+              onPress={this.props.changeAuthPageState}
+              >
+              <Text>Already Registered ? Click here to login</Text>
+            </TouchableOpacity>
             </View>
         );
         }
@@ -179,11 +186,13 @@ class SignUp extends React.Component{
 
 export default function App() {
     const [authPageState, setAuthPageState] = useRecoilState(authenticatePage);
-
+    const [authState, setAuthState] = useRecoilState(authenticateState);
+    changeAuthState=() => setAuthState(!authState);
+    changeAuthPageState=() => setAuthPageState(!authPageState);
     return (
-    <RecoilRoot>
-        {(!authPageState)? <SignUp authPageState={authPageState}/>: <Login />}
-    </RecoilRoot>
+    <>
+        {(authPageState)? <SignUp authPageState={authPageState} changeAuthPageState={this.changeAuthPageState}/>: <Login authPageState={authPageState} changeAuthPageState={this.changeAuthPageState} changeAuthState={this.changeAuthState}/>}
+    </>
 
 );
 }
