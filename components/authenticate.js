@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Alert, ActivityIndicator,TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Alert, Image, ActivityIndicator,TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { RecoilRoot } from "recoil";
 import firebase from './firebase';
@@ -55,6 +55,7 @@ class Login extends React.Component{
         }
         return (
           <View style={styles.container}>
+            <Image source={require('./static/GinyaLogo.jpg')} style={{ width: 300, height: 100, borderRadius: 10, marginBottom:10 }}/>
             <TextInput
               style={styles.inputStyle}
               placeholder="Email"
@@ -72,12 +73,13 @@ class Login extends React.Component{
               secureTextEntry={true}
             />
             <Button
-              color="#3740FE"
+              color="#001D6E"
               title="Log in"
               onPress={() => this.userLogin()}
             />
             <TouchableOpacity
               onPress={this.props.changeAuthPageState}
+              style={{color:"#001D6E", marginTop: 10}}
               >
               <Text>Dont have an account? Click here to signup</Text>
             </TouchableOpacity>
@@ -145,6 +147,7 @@ class SignUp extends React.Component{
         }
         return (
           <View style={styles.container}>
+            <Image source={require('./static/GinyaLogo.jpg')} style={{ width: 300, height: 100, borderRadius: 10, marginBottom:10 }}/>
             <TextInput
               style={styles.inputStyle}
               placeholder="Name"
@@ -169,15 +172,16 @@ class SignUp extends React.Component{
               secureTextEntry={true}
             />
             <Button
-              color="#3740FE"
+              color="#001D6E"
               title="Sign up"
               onPress={() => {this.registerUser()}}
 
             />
             <TouchableOpacity
               onPress={this.props.changeAuthPageState}
+              style={{marginTop:10}}
               >
-              <Text>Already Registered ? Click here to login</Text>
+              <Text style={{color:"#001D6E"}}>Already Registered ? Click here to login</Text>
             </TouchableOpacity>
             </View>
         );
@@ -204,7 +208,8 @@ container: {
     flexDirection: "column",
     justifyContent: "center",
     padding: 35,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    alignItems: 'center'
 },
 inputStyle: {
     width: '100%',
