@@ -32,6 +32,11 @@ To run the application, we used android studio because of the various features i
   <img src="./ApplicationSample/Add_Task_1.jpg">
 </p>
 
+### Calendar View
+<p align="left">
+  <img src="./ApplicationSample/Calendar_View_Red_days.jpg">
+</p>
+
 
 
 ## Languages and Tools
