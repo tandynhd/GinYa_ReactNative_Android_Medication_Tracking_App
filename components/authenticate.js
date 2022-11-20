@@ -55,7 +55,7 @@ class Login extends React.Component{
         }
         return (
           <View style={styles.container}>
-            <Image source={require('./static/GinyaLogo.jpg')} style={{ width: 300, height: 100, borderRadius: 10, marginBottom:10 }}/>
+            <Image source={require('./static/GinYaLogo7.png')} style={{ width: 300, height: 100, borderRadius: 10, marginBottom:10 }}/>
             <TextInput
               style={styles.inputStyle}
               placeholder="Email"
@@ -79,9 +79,9 @@ class Login extends React.Component{
             />
             <TouchableOpacity
               onPress={this.props.changeAuthPageState}
-              style={{color:"#001D6E", marginTop: 10}}
+              style={{marginTop: 10}}
               >
-              <Text>Dont have an account? Click here to signup</Text>
+              <Text style={{color:"#001D6E"}}>Dont have an account? Click here to signup</Text>
             </TouchableOpacity>
           </View>
         );
@@ -147,7 +147,7 @@ class SignUp extends React.Component{
         }
         return (
           <View style={styles.container}>
-            <Image source={require('./static/GinyaLogo.jpg')} style={{ width: 300, height: 100, borderRadius: 10, marginBottom:10 }}/>
+            <Image source={require('./static/GinYaLogo7.png')} style={{ width: 300, height: 100, borderRadius: 10, marginBottom:10 }}/>
             <TextInput
               style={styles.inputStyle}
               placeholder="Name"
