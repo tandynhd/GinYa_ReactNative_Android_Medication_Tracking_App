@@ -27,6 +27,12 @@ To run the application, we used android studio because of the various features i
   <img src="./ApplicationSample/Login_Login.jpg">
 </p>
 
+### Sign Up
+<p align="left">
+  <img src="./ApplicationSample/Login_SignUp.jpg">
+</p>
+
+
 ### View Task
 <p align="left">
   <img src="./ApplicationSample/View_Task_1.jpg">
