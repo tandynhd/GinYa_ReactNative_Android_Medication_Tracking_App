@@ -22,8 +22,10 @@ To run the application, we used android studio because of the various features i
 
 ## Application Sample
 
+<p align="center">
+  ![Add Task](./ApplicationSample/Add_Task_1.jpg)
+</p>
 
-![Add Task](./ApplicationSample/Add_Task_1.jpg)
 
 
 ## Languages and Tools
