@@ -8,15 +8,10 @@ To run the application, we used android studio because of the various features i
 
 1. ```bash git clone``` the Github repository onto their Android Studio
 
-```bash
-git clone https://github.com/6222790345/GinYa.git
-```
-```bash
-install all the dependencies listed in Package.json using
-```
-```bash
-npm i
-```
+2.```bash git clone https://github.com/6222790345/GinYa.git```
+
+3. install all the dependencies listed in Package.json using ```bash npm i```
+
 ```bash
 Setup a virtual android device (Pixel 5 and Android 11 worked best for us)
 ```
