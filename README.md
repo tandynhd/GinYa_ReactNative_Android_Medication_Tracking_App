@@ -27,6 +27,11 @@ To run the application, we used android studio because of the various features i
   <img src="./ApplicationSample/Login_Login.jpg">
 </p>
 
+### View Task
+<p align="left">
+  <img src="./ApplicationSample/View_Task_1">
+</p>
+
 ### Add Task
 <p align="left">
   <img src="./ApplicationSample/Add_Task_1.jpg">
@@ -36,6 +41,12 @@ To run the application, we used android studio because of the various features i
 <p align="left">
   <img src="./ApplicationSample/Calendar_View_Red_days.jpg">
 </p>
+
+### Report Page
+<p align="left">
+  <img src="./ApplicationSample/Report_Page_1.jpg">
+</p>
+
 
 
 
