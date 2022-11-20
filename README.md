@@ -6,7 +6,7 @@ Application that would track and notify patients to take the correct medication 
 
 To run the application, we used android studio because of the various features it provided that helped develop the application. All one needs to do to setup the project on their own device is:
 
-1. ```bash git clone ``` the Github repository onto their Android Studio
+1. ```bash git clone``` the Github repository onto their Android Studio
 
 ```bash
 git clone https://github.com/6222790345/GinYa.git
