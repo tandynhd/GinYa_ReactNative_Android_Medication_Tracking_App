@@ -29,7 +29,7 @@ To run the application, we used android studio because of the various features i
 
 ### View Task
 <p align="left">
-  <img src="./ApplicationSample/View_Task_1">
+  <img src="./ApplicationSample/View_Task_1.jpg">
 </p>
 
 ### Add Task
