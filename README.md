@@ -12,15 +12,11 @@ To run the application, we used android studio because of the various features i
 
 3. install all the dependencies listed in Package.json using ```bash npm i```
 
-```bash
-Setup a virtual android device (Pixel 5 and Android 11 worked best for us)
-```
-```bash
-run  the following code in cmd to start the application
-```
-```bash
-npx react-native run-android
-```
+4. Setup a virtual android device (Pixel 5 and Android 11 worked best for us)
+
+5. run  the following code in cmd to start the application
+
+ -```bash npx react-native run-android```
 ```bash
 wait for node.js to bundle the entire application and start it on the virtual device
 ```
