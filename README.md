@@ -7,7 +7,7 @@ Application that would track and notify patients to take the correct medication 
 To run the application, we used android studio because of the various features it provided that helped develop the application. All one needs to do to setup the project on their own device is:
 
 ```bash
-pip install foobar
+git clone the Github repository onto their Android Studio
 ```
 
 
