@@ -24,9 +24,9 @@ To run the application, we used android studio because of the various features i
 
 ### Login
 <p align="left"> 
-    Users can login to their existing accounts or click on the signup button to go to the signup page </br>
-The application loads the authenticate page first </br>
-  <img src="./ApplicationSample/Login_Login.jpg">
+    <p>- Users can login to their existing accounts or click on the signup button to go to the signup page </br>
+    <p>- application loads the authenticate page first </br>
+    <img src="./ApplicationSample/Login_Login.jpg">
 </p>
 
 
