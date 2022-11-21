@@ -24,7 +24,7 @@ To run the application, we used android studio because of the various features i
 
 ### Login
 <p align="left"> 
-    Test test
+    Test test </br>
   <img src="./ApplicationSample/Login_Login.jpg">
 </p>
 
