@@ -33,7 +33,7 @@ To run the application, we used android studio because of the various features i
 </p>
 
 
-### Sign Up 🔏
+### 🔏 Sign Up 
 
 <p align="left">
  <p>- Users can register for a new account or click on the login button to go to the login page </br>
@@ -42,7 +42,7 @@ To run the application, we used android studio because of the various features i
 </p>
 
 
-### View Tasks 🔍
+### 🔍 View Tasks 
 <p align="left">
  <p>- The View Tasks page lists all the tasks the user needs to complete from the tasksList atom </br>
  <p>- The page auto sorts all the tasks according to their time and stylizes them accordingly </br>
@@ -50,21 +50,21 @@ To run the application, we used android studio because of the various features i
   <img src="./ApplicationSample/View_Task_1.jpg">
 </p>
 
-### Add Task 📝
+### 📝 Add Task 
 <p align="left">
 <p>- Users should be able to add more tasks from this page </br>
 <p>- Clicking on set notification updates the tasksList atom and also sets up a notification </br>
   <img src="./ApplicationSample/Add_Task_1.jpg">
 </p>
 
-### Calendar View 📅
+### 📅 Calendar View 
 <p align="left">
 <p>- This page summarises the status of tasks on each of the day of the month from the tasksStatus atom</br>
 <p>- Users can click on individual dates to see the task status for that day </br>
   <img src="./ApplicationSample/Calendar_View_Red_days.jpg">
 </p>
 
-### Report Page 📊
+### 📊 Report Page 
 <p align="left">
 <p>- Users should be able to generate a pdf report for their doctors </br>
 <p>- They can do this using the generate report button which makes a report out of tasksStatus atom </br>
