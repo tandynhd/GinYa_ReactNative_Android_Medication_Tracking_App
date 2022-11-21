@@ -23,9 +23,11 @@ To run the application, we used android studio because of the various features i
 ## Application Sample
 
 ### Login
-<p align="left">
+<p align="left"> 
+    Test test
   <img src="./ApplicationSample/Login_Login.jpg">
 </p>
+
 
 ### Sign Up
 <p align="left">
