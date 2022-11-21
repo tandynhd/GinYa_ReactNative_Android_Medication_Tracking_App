@@ -24,34 +24,48 @@ To run the application, we used android studio because of the various features i
 
 ### Login
 <p align="left"> 
-    Test test </br>
+    Users can login to their existing accounts or click on the signup button to go to the signup page </br>
+The application loads the authenticate page first 
   <img src="./ApplicationSample/Login_Login.jpg">
 </p>
 
 
 ### Sign Up
 <p align="left">
+ Users can register for a new account or click on the login button to go to the login page </br>
+ Once the user signs up for a new account they are automatically redirected to the login page</br>
   <img src="./ApplicationSample/Login_SignUp.jpg">
 </p>
 
 
-### View Task
+### View Tasks
 <p align="left">
+The View Tasks page lists all the tasks the user needs to complete from the tasksList atom </br>
+The page auto sorts all the tasks according to their time and stylizes them accordingly </br>
+The user can delete the tasks, undo accidently deleted tasks and scroll throuhg the various tasks </br>
   <img src="./ApplicationSample/View_Task_1.jpg">
 </p>
 
 ### Add Task
 <p align="left">
+Users should be able to add more tasks from this page </br>
+Clicking on set notification updates the tasksList atom and also sets up a notification </br>
   <img src="./ApplicationSample/Add_Task_1.jpg">
 </p>
 
 ### Calendar View
 <p align="left">
+This page summarises the staus of tasks on each of the day of the month from the tasksStatus atom</br>
+Users can click on individual dates to see the task status for that day </br>
   <img src="./ApplicationSample/Calendar_View_Red_days.jpg">
 </p>
 
 ### Report Page
 <p align="left">
+Users should be able to generate a pdf report for their doctors </br>
+They can do this using the generate report button which makes a report out of tasksStaus atom </br>
+The Patient Profile button converts a google document to a pdf and allows that to be shown as a pdf in the app </br>
+The log out button allows user to change the authenticateState to false again thus going back to the Authenticate page </br>
   <img src="./ApplicationSample/Report_Page_1.jpg">
 </p>
 
