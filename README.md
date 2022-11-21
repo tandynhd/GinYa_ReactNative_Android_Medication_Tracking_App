@@ -22,8 +22,9 @@ To run the application, we used android studio because of the various features i
 
 ## Application Sample
 
-### Login
 > More sample of the application can be found in [This Link](./ApplicationSample).
+
+### Login
 
 <p align="left"> 
     <p>- Users can login to their existing accounts or click on the signup button to go to the signup page </br>
