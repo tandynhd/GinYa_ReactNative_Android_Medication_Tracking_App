@@ -46,7 +46,7 @@ To run the application, we used android studio because of the various features i
 <p align="left">
  <p>- The View Tasks page lists all the tasks the user needs to complete from the tasksList atom </br>
  <p>- The page auto sorts all the tasks according to their time and stylizes them accordingly </br>
- <p>- The user can delete the tasks, undo accidently deleted tasks and scroll throuhg the various tasks </br>
+ <p>- The user can delete the tasks, undo accidently deleted tasks and scroll through the various tasks </br>
   <img src="./ApplicationSample/View_Task_1.jpg">
 </p>
 
@@ -59,7 +59,7 @@ To run the application, we used android studio because of the various features i
 
 ### Calendar View
 <p align="left">
-<p>- This page summarises the staus of tasks on each of the day of the month from the tasksStatus atom</br>
+<p>- This page summarises the status of tasks on each of the day of the month from the tasksStatus atom</br>
 <p>- Users can click on individual dates to see the task status for that day </br>
   <img src="./ApplicationSample/Calendar_View_Red_days.jpg">
 </p>
@@ -67,7 +67,7 @@ To run the application, we used android studio because of the various features i
 ### Report Page
 <p align="left">
 <p>- Users should be able to generate a pdf report for their doctors </br>
-<p>- They can do this using the generate report button which makes a report out of tasksStaus atom </br>
+<p>- They can do this using the generate report button which makes a report out of tasksStatus atom </br>
 <p>- The Patient Profile button converts a google document to a pdf and allows that to be shown as a pdf in the app </br>
 <p>- The log out button allows user to change the authenticateState to false again thus going back to the Authenticate page </br>
   <img src="./ApplicationSample/Report_Page_1.jpg">
