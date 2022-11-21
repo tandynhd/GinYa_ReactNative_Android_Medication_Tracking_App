@@ -48,8 +48,8 @@ The user can delete the tasks, undo accidently deleted tasks and scroll throuhg 
 
 ### Add Task
 <p align="left">
-Users should be able to add more tasks from this page </br>
-Clicking on set notification updates the tasksList atom and also sets up a notification </br>
+<p>Users should be able to add more tasks from this page </br>
+<p>Clicking on set notification updates the tasksList atom and also sets up a notification </br>
   <img src="./ApplicationSample/Add_Task_1.jpg">
 </p>
 
