@@ -23,6 +23,8 @@ To run the application, we used android studio because of the various features i
 ## Application Sample
 
 ### Login
+> More sample of the application can be found in [This Link](./ApplicationSample).
+
 <p align="left"> 
     <p>- Users can login to their existing accounts or click on the signup button to go to the signup page </br>
     <p>- Application loads the authenticate page first </br>
@@ -31,6 +33,7 @@ To run the application, we used android studio because of the various features i
 
 
 ### Sign Up
+
 <p align="left">
  <p>- Users can register for a new account or click on the login button to go to the login page </br>
  <p>- Once the user signs up for a new account they are automatically redirected to the login page</br>
