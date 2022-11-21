@@ -20,13 +20,15 @@ To run the application, we used android studio because of the various features i
 
 3. Install all the dependencies listed in Package.json using ```bash npm i```
 
-4. Setup a virtual android device (Pixel 5 and Android 11 worked best for us)
+4. Replace the firebase config file with your own firebase after setting it up for authentication
 
-5. Run  the following code in cmd to start the application ```bash npx react-native run-android```
+5. Setup a virtual android device (Pixel 5 and Android 11 worked best for us)
 
-6. Wait for node.js to bundle the entire application and start it on the virtual device
+6. Run  the following code in cmd to start the application ```bash npx react-native run-android```
 
-7. Login/Signup to GinYa
+7. Wait for node.js to bundle the entire application and start it on the virtual device
+
+8. Login/Signup to GinYa
 
 ## Application Sample 📱
 
