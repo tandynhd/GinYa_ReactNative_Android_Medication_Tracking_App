@@ -2,8 +2,10 @@
 import { initializeApp } from 'firebase/app';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+require("dotenv").config();
+console.log(process.env.apiKey);
 const firebaseConfig = {
-    apiKey: "AIzaSyDoKHo90OlIpHHyi7yo9Ca9zBrhy8pYSqU",
+    apiKey: process.env.apiKey;
     authDomain: "medapp-91193.firebaseapp.com",
     projectId: "medapp-91193",
     storageBucket: "medapp-91193.appspot.com",

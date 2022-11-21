@@ -64,5 +64,5 @@ buck-out/
 /vendor/bundle/
 
 #dotenv environment variable file
-.env
+components/.env
 .env.test
