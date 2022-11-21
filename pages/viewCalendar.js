@@ -86,7 +86,6 @@ export default function Homepage() {
         '2022-11-19': {dots: [taskStatus[18].eye?eye:"",taskStatus[18].ear?ear:"",taskStatus[18].head?head:"",taskStatus[18].ankle?ankle:"",taskStatus[18].hip?hip:""], selected: true, selectedColor: taskStatus[18].color},
         '2022-11-20': {dots: [taskStatus[19].eye?eye:"",taskStatus[19].ear?ear:"",taskStatus[19].head?head:"",taskStatus[19].ankle?ankle:"",taskStatus[19].hip?hip:""], selected: true, selectedColor: taskStatus[19].color},
 //        '2022-11-21': {dots: [taskStatus[20].eye?eye:"",taskStatus[20].ear?ear:"",taskStatus[20].head?head:"",taskStatus[20].ankle?ankle:"",taskStatus[20].hip?hip:""]},
-
       }}
       enableSwipeMonths={true}
     />

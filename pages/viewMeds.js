@@ -7,7 +7,6 @@ import { tasksList } from "./Atoms";
 import { useRecoilState } from "recoil";
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import Lottie from 'lottie-react-native';
-//import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 function ViewNotes({ navigation }) {
   const [hour, setHour] = useState(new Date().getHours());
