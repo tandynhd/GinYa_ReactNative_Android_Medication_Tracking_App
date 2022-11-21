@@ -31,7 +31,8 @@ To run the application, we used android studio because of the various features i
 
 <p align="left"> 
     <p>- Users can login to their existing accounts or click on the signup button to go to the signup page </br>
-    <p>- Application loads the authenticate page first </br>
+    <p>- Application loads the authenticate page first as the authenticateState atom is set to false</br>
+    <p>- On successfully loggin in the authenticateState atom is set to True thus loading the main application</br>
     <img src="./ApplicationSample/Login_Login.jpg">
 </p>
 
@@ -40,7 +41,7 @@ To run the application, we used android studio because of the various features i
 
 <p align="left">
  <p>- Users can register for a new account or click on the login button to go to the login page </br>
- <p>- Once the user signs up for a new account they are automatically redirected to the login page</br>
+ <p>- Once the user signs up for a new account they are automatically redirected to the login page by setting the authenticatePage atom to false</br>
   <img src="./ApplicationSample/Login_SignUp.jpg">
 </p>
 
