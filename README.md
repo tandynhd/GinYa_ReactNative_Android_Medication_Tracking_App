@@ -38,9 +38,6 @@ To run the application, we used android studio because of the various features i
 
 ### Login 🔓
 
--Users can login to their existing accounts or click on the signup button to go to the signup page 
--Application loads the authenticate page first 
-
 <p align="left"> 
     <p>- Users can login to their existing accounts or click on the signup button to go to the signup page </br>
     <p>- Application loads the authenticate page first as the authenticateState atom is set to false</br>
